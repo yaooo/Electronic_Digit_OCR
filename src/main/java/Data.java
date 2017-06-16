@@ -1,3 +1,6 @@
+/**
+ * @author Yao Shi
+ */
 
 public class Data {
 

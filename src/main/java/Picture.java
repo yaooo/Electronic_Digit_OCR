@@ -1,3 +1,7 @@
+/**
+ * @author Yao Shi
+ */
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -21,7 +25,7 @@ public class Picture {
 		this.bufferedImage = rotateCw(load(filename));
 	}
 
-	public BufferedImage load(String fileName) {
+	private BufferedImage load(String fileName) {
 		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(fileName));
@@ -62,7 +66,7 @@ public class Picture {
 	/**
 	 * Duplicate the image and return a copy of it
 	 */
-	public static BufferedImage deepCopy(BufferedImage bi) {
+	private static BufferedImage deepCopy(BufferedImage bi) {
 		ColorModel cm = bi.getColorModel();
 		boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
 		WritableRaster raster = bi.copyData(null);
@@ -73,7 +77,7 @@ public class Picture {
 	 * Create a copy of the original image. Adjust the brightness with the input
 	 * brightenFactor. Return the new adjusted image.
 	 */
-	public BufferedImage brighten(float brightenFactor) {
+	private BufferedImage brighten(float brightenFactor) {
 		BufferedImage image = deepCopy(this.bufferedImage);
 		RescaleOp op = new RescaleOp(brightenFactor, 0, null);
 		image = op.filter(image, image);
@@ -84,7 +88,7 @@ public class Picture {
 	/**
 	 * Change the image to the gray scale.
 	 */
-	public BufferedImage toGray(BufferedImage input) {
+	private BufferedImage toGray(BufferedImage input) {
 		BufferedImage image = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
 		Graphics2D g2d = image.createGraphics();
 		g2d.drawImage(input, 0, 0, null);
@@ -114,7 +118,7 @@ public class Picture {
 	/**
 	 * Rotate clockwise by 90 degrees
 	 */
-	public static BufferedImage rotateCw(BufferedImage img) {
+	private static BufferedImage rotateCw(BufferedImage img) {
 		int width = img.getWidth();
 		int height = img.getHeight();
 		BufferedImage newImage = new BufferedImage(height, width, img.getType());

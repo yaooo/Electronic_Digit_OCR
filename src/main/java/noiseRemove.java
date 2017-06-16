@@ -3,8 +3,6 @@
  */
 public class noiseRemove {
 
-
-
     /**
      * This is a helper method to clear noise for binary(black & white) images
      * @param pixels Input matrix for the image
@@ -20,13 +18,13 @@ public class noiseRemove {
         System.out.println("dimension " + yMax + " " + xMax);
         for(int i = 1; i < xMax; i ++){
             for (int j = 1; j < yMax; j++){
-                isConcecutiveBlack(i, j, numOfByte, pixels);
+                isConsecutiveBlack(i, j, numOfByte, pixels);
             }
         }
 
     }
 
-    private static void isConcecutiveBlack(int x, int y, int numOfByte, byte[][]pixels){
+    private static void isConsecutiveBlack(int x, int y, int numOfByte, byte[][]pixels){
         switch (numOfByte) {
 
             case 1:

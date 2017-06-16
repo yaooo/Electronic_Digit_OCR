@@ -1,3 +1,6 @@
+/**
+ * @author Yao Shi
+ */
 
 import org.apache.commons.io.FileUtils;
 
@@ -27,7 +30,7 @@ public class testing {
 		// ImageIO.write(x.getBufferedImage(), "JPG", new
 		// File("C:\\Users\\Yao\\Desktop\\exp1.jpg"));
 
-		handlePicture("C:\\Users\\Yao\\workspace\\OCR_DIGIT\\resources\\testing\\dir.txt");
+		handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
 		System.out.println("Done.");
 	}
 
@@ -35,7 +38,7 @@ public class testing {
 	 * Input a txt file in the image folder. The txt file should contain the
 	 * names of all images.
 	 */
-	public static void handlePicture(String args) throws IOException {
+	private static void handlePicture(String args) throws IOException {
 		File file = new File(args);
 
 		String abs = file.getParentFile().getAbsolutePath();
@@ -59,102 +62,63 @@ public class testing {
 			System.out.println(path + " is processing...");
 
 			// Adjust the brightness and change the image to binary
-			newPath = path.substring(0, indexOfDot) + "_new(0.0).jpg";
-			ImageIO.write(x.filtToBlackWhite(0), "JPG", new File(newPath));
-			// this one applies rotation
-			double ID = 0;
-			extractBytes(newPath,ID);
+			for (double i = 1; i <= 3.5; i += 0.5) {
 
-			newPath = path.substring(0, indexOfDot) + "_new(1.0).jpg";
-			ImageIO.write(x.filtToBlackWhite(1.0f), "JPG", new File(newPath));
-			ID = 1;
-			extractBytes(newPath,ID);
-
-			newPath = path.substring(0, indexOfDot) + "_new(1.5).jpg";
-			ImageIO.write(x.filtToBlackWhite(1.5f), "JPG", new File(newPath));
-			ID = 1.5;
-			extractBytes(newPath,ID);
-
-			newPath = path.substring(0, indexOfDot) + "_new(2.0).jpg";
-			ImageIO.write(x.filtToBlackWhite(2.0f), "JPG", new File(newPath));
-			ID = 2;
-			extractBytes(newPath,ID);
-/*
-			newPath = path.substring(0, indexOfDot) + "_new(2.5).jpg";
-			ImageIO.write(x.filtToBlackWhite(2.5f), "JPG", new File(newPath));
-			ID = 2.5;
-			extractBytes(newPath,ID);
-
-			newPath = path.substring(0, indexOfDot) + "_new(3.0).jpg";
-			ImageIO.write(x.filtToBlackWhite(3.0f), "JPG", new File(newPath));
-			ID = 3;
-			extractBytes(newPath,ID);
-
-			newPath = path.substring(0, indexOfDot) + "_new(3.5).jpg";
-			ImageIO.write(x.filtToBlackWhite(3.5f), "JPG", new File(newPath));
-			ID = 3.5;
-			extractBytes(newPath,ID);*/
+				newPath = path.substring(0, indexOfDot) + "_new(" + i + ").jpg";
+				ImageIO.write(x.filtToBlackWhite((float) i), "JPG", new File(newPath));
+				double ID = i;
+				extractBytes(newPath, ID);
+			}
 		}
 		br.close();
 
 	}
 
-/*	public static void getMiddleColumnsByte(String ImageName)throws IOException{
-		 File imgPath = new File(ImageName);
-		 BufferedImage bufferedImage = ImageIO.read(imgPath);
-		 WritableRaster raster = bufferedImage.getRaster();
-		 DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-
-		 FileUtils.
-				 writeByteArrayToFile(new File("C:\\Users\\Yao\\Desktop\\exp_data"), data.getData());
-		 System.out.println("Image dimension: width:" + bufferedImage.getWidth() + ",height:" + bufferedImage.getHeight());
-		 //return (data.getData());
-	}*/
-
-
 	/**
 	 * Extract the byte array of the image
 	 * Output only 0s and 1s because the image we are working with should already be type_binary(black & white)
 	 */
-	public static void extractBytes(String ImageName, double ID) throws IOException {
+	private static void extractBytes(String ImagePath, double ID) throws IOException {
 
-		BufferedImage image = ImageIO.read(new File("C:\\Users\\Yao\\Desktop\\exp.jpg"));
-
+		BufferedImage image = ImageIO.read(new File(ImagePath));
 		int height = image.getHeight();
 		int width = image.getWidth();
+
+		String dataPath_original = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_original.bin";
+		String dataPath_edited = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_edited.bin";
+
+		File f = new File(dataPath_original);
+		if (f.exists() && !f.isDirectory()) {
+			f.delete();
+		}
 
 		byte[][] pixels = new byte[width][];
 
 		for (int x = 0; x < width; x++) {
 			pixels[x] = new byte[height];
-
 			for (int y = 0; y < image.getHeight(); y++) {
-				pixels[x][y] = (byte) (image.getRGB(x, y) == 0xFFFFFFFF ? 1 : 0);
+				pixels[x][y] = (byte) (image.getRGB(x, y) == 0xFFFFFFFF ? 1 : 0); // The output is either 1 or 0
 			}
-			// stem.out.println(x);
-
-			FileOutputStream fos = new FileOutputStream("C:\\Users\\Yao\\Desktop\\exp_data_original"+ID+".bin", true);
+			FileOutputStream fos = new FileOutputStream(dataPath_original, true);
 			fos.write(pixels[x]);
 			fos.close();
 		}
 
-		clearNoise(width,height,pixels);
+		clearNoise(width, height, pixels);
 
-		for (int i = 0; i < width; i++){
-
-			FileUtils.writeByteArrayToFile(new
-			File("C:\\Users\\Yao\\Desktop\\exp_data_edited"+ID+".bin"), pixels[i], true);
+		for (int i = 0; i < width; i++) {
+			FileUtils.writeByteArrayToFile(new File(dataPath_edited), pixels[i], true);
 		}
 
 	}
 
-	public static void clearNoise(int width, int height, byte[][] pixels){
-		noiseRemove.removeNoise(pixels,width,height,3,2);
-		noiseRemove.removeNoise(pixels,width,height,2,2);
-		noiseRemove.removeNoise(pixels,width,height,1,2);
-		noiseRemove.removeNoise(pixels,width,height,3,1);
-		noiseRemove.removeNoise(pixels,width,height,2,1);
-		noiseRemove.removeNoise(pixels,width,height,1,1);
+	private static void clearNoise(int width, int height, byte[][] pixels) {
+		noiseRemove.removeNoise(pixels, width, height, 3, 2);
+		noiseRemove.removeNoise(pixels, width, height, 2, 2);
+		noiseRemove.removeNoise(pixels, width, height, 1, 2);
+		noiseRemove.removeNoise(pixels, width, height, 3, 1);
+		noiseRemove.removeNoise(pixels, width, height, 2, 1);
+		noiseRemove.removeNoise(pixels, width, height, 1, 1);
 	}
 
 
