@@ -6,16 +6,14 @@ public class noiseRemove {
     /**
      * This is a helper method to clear noise for binary(black & white) images
      * @param pixels Input matrix for the image
-     * @param width Image width
-     * @param height Image height
      * @param numOfByte how many consecutive bytes when removing noise
      * @param numOfOperations how many times to run this code
      *                        suggest to set it to 2, but it depends on the image quality
      */
-    public static void removeNoise(byte[][] pixels, int width, int height, int numOfByte, int numOfOperations){
+    public static void removeNoise(byte[][] pixels, int numOfByte, int numOfOperations){
         int xMax = pixels.length - numOfByte;
         int yMax = pixels[0].length -numOfByte;
-        System.out.println("dimension " + yMax + " " + xMax);
+        //System.out.println("dimension " + yMax + " " + xMax);
         for(int i = 1; i < xMax; i ++){
             for (int j = 1; j < yMax; j++){
                 isConsecutiveBlack(i, j, numOfByte, pixels);
@@ -62,7 +60,16 @@ public class noiseRemove {
 
     }
 
+    public static void addBlack(byte[][] pixels){
+        for(int i = 1; i < pixels.length - 1; i ++){
+            for (int j = 1; j < pixels[0].length - 1; j++){
+               if(pixels[i][j] == (byte)1 && pixels[i][j+1] == (byte)0 && pixels[i][j-1] == (byte)0){
+                   pixels[i][j] = (byte)0;
+               }
+            }
+        }
 
+    }
 
 
 }

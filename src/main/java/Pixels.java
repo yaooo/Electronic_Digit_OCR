@@ -58,5 +58,33 @@ public class Pixels {
         return (Math.abs(fp[0]-sp[0]) <= range && Math.abs(fp[1]-sp[1]) <= range && Math.abs(fp[2]-sp[2]) <= range);
     }
 
+    private static boolean ifInRange(int[] number, int upperBound_R, int lowerBound_R, int upperBound_G, int lowerBound_G, int upperBound_B, int lowerBound_B){
+
+         return (number[0] > lowerBound_R && number[0] < upperBound_R)&&(number[1] > lowerBound_R && number[1] < upperBound_R)&&(number[2] > lowerBound_R && number[2] < upperBound_R);
+    }
+
+    /**
+     * @param height The height of the image
+     */
+
+    private static int detectTheEdge(int height, int[][] pixelData){
+        int y = -1;
+
+
+        for(int i = 0; i < pixelData.length - height; i++){
+            int y_cord = i%height;
+
+            if(y_cord < height*0.7){
+                if(ifInRange(pixelData[i],125,80,125,70,120,60)){
+
+                }
+            }else {
+                i = (i/height + 1)*height; // skip the remaining pixels in one column
+            }
+
+        }
+        return y;
+    }
+
 }
 

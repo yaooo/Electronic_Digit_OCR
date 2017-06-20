@@ -5,10 +5,7 @@
 public class Data {
 
 	public class Number {
-		int location;
-		int ones;
-		int tens;
-		int hundreds;
+		private int location, ones, tens, hundreds;
 
 		// 0: top ; 1: middle; 2: bottom
 		public Number(int location) {
@@ -43,7 +40,7 @@ public class Data {
 		}
 	}
 
-	public Number top, middle, bottom;
+	private Number top, middle, bottom;
 
 	public Data() {
 		top = new Number(0);

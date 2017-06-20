@@ -6,8 +6,6 @@ import org.apache.commons.io.FileUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,20 +15,32 @@ import java.io.IOException;
 public class testing {
 
 	public static void main(String[] args) throws IOException {
-		// input a txt file that contains directory of the images
 
-//		Picture x = new Picture("C:\\Users\\Yao\\workspace\\OCR_DIGIT\\resources\\Photos\\t (1).jpg");
-//		int rgb = x.getBufferedImage().getRGB(2, 2);
-//
-//		int alpha = (rgb >> 24) & 0xFF;
-//		int red = (rgb >> 16) & 0xFF;
-//		int green = (rgb >> 8) & 0xFF;
-//		int blue = (rgb) & 0xFF;
-//		System.out.println(red + " " + green + " " + blue);
-		// ImageIO.write(x.getBufferedImage(), "JPG", new
-		// File("C:\\Users\\Yao\\Desktop\\exp1.jpg"));
 
-		handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
+/**
+ * The usage of CannyEdgeDetector
+ * */
+	/*	//create the detector
+		CannyEdgeDetector detector = new CannyEdgeDetector();
+
+		String path = "\"C:\\Users\\Yao\\Desktop\\exp1.jpg";
+		BufferedImage frame = ImageIO.read(new File(path));
+		//adjust its parameters as desired
+		detector.setLowThreshold(0.5f);
+		detector.setHighThreshold(1f);
+
+		//apply it to an image
+		detector.setSourceImage(frame);
+		detector.process();
+		BufferedImage edges = detector.getEdgesImage();
+*/
+
+
+
+
+
+		// input a txt file that contains directory of the image
+		//handlePicture("C:\\Users\\Yao\\Desktop\\img\\dir.txt");
 		System.out.println("Done.");
 	}
 
@@ -66,8 +76,7 @@ public class testing {
 
 				newPath = path.substring(0, indexOfDot) + "_new(" + i + ").jpg";
 				ImageIO.write(x.filtToBlackWhite((float) i), "JPG", new File(newPath));
-				double ID = i;
-				extractBytes(newPath, ID);
+				extractBytes(newPath);
 			}
 		}
 		br.close();
@@ -78,7 +87,7 @@ public class testing {
 	 * Extract the byte array of the image
 	 * Output only 0s and 1s because the image we are working with should already be type_binary(black & white)
 	 */
-	private static void extractBytes(String ImagePath, double ID) throws IOException {
+	private static void extractBytes(String ImagePath) throws IOException {
 
 		BufferedImage image = ImageIO.read(new File(ImagePath));
 		int height = image.getHeight();
@@ -87,24 +96,20 @@ public class testing {
 		String dataPath_original = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_original.bin";
 		String dataPath_edited = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_edited.bin";
 
-		File f = new File(dataPath_original);
-		if (f.exists() && !f.isDirectory()) {
-			f.delete();
-		}
 
 		byte[][] pixels = new byte[width][];
+		FileOutputStream fos = new FileOutputStream(dataPath_original, true);
 
 		for (int x = 0; x < width; x++) {
 			pixels[x] = new byte[height];
 			for (int y = 0; y < image.getHeight(); y++) {
 				pixels[x][y] = (byte) (image.getRGB(x, y) == 0xFFFFFFFF ? 1 : 0); // The output is either 1 or 0
 			}
-			FileOutputStream fos = new FileOutputStream(dataPath_original, true);
 			fos.write(pixels[x]);
-			fos.close();
-		}
+		}			fos.close();
 
-		clearNoise(width, height, pixels);
+
+		clearNoise(pixels);
 
 		for (int i = 0; i < width; i++) {
 			FileUtils.writeByteArrayToFile(new File(dataPath_edited), pixels[i], true);
@@ -112,13 +117,21 @@ public class testing {
 
 	}
 
-	private static void clearNoise(int width, int height, byte[][] pixels) {
-		noiseRemove.removeNoise(pixels, width, height, 3, 2);
-		noiseRemove.removeNoise(pixels, width, height, 2, 2);
-		noiseRemove.removeNoise(pixels, width, height, 1, 2);
-		noiseRemove.removeNoise(pixels, width, height, 3, 1);
-		noiseRemove.removeNoise(pixels, width, height, 2, 1);
-		noiseRemove.removeNoise(pixels, width, height, 1, 1);
+
+	/**
+	 * Use for clearing the noise edge
+	 * Remove single or multiple small black dots from the array of data
+	 * Add the single black dot to the white spot where its upper and lower pixels are black
+	 */
+
+	private static void clearNoise( byte[][] pixels) {
+		noiseRemove.removeNoise(pixels, 3, 2);
+		noiseRemove.removeNoise(pixels, 2, 2);
+		noiseRemove.removeNoise(pixels, 1, 2);
+		noiseRemove.removeNoise(pixels, 3, 1);
+		noiseRemove.removeNoise(pixels, 2, 1);
+		noiseRemove.removeNoise(pixels, 1, 1);
+		noiseRemove.addBlack(pixels);
 	}
 
 
