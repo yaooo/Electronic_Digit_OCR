@@ -38,16 +38,14 @@ public class Picture {
 		return bufferedImage;
 	}
 
+	public String getPath(){return filename;}
+
 	public int getHeight() {
 		return bufferedImage.getHeight();
 	}
 
 	public int getWidth() {
 		return bufferedImage.getWidth();
-	}
-
-	public void setFileName(String name) {
-		filename = name;
 	}
 
 	public boolean write(String fileName) throws IOException {
@@ -88,7 +86,7 @@ public class Picture {
 	/**
 	 * Change the image to the gray scale.
 	 */
-	private BufferedImage toGray(BufferedImage input) {
+	public BufferedImage toGray(BufferedImage input) {
 		BufferedImage image = new BufferedImage(input.getWidth(), input.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
 		Graphics2D g2d = image.createGraphics();
 		g2d.drawImage(input, 0, 0, null);
@@ -129,5 +127,7 @@ public class Picture {
 
 		return newImage;
 	}
+
+
 
 }

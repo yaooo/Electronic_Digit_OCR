@@ -16,31 +16,8 @@ public class testing {
 
 	public static void main(String[] args) throws IOException {
 
-
-/**
- * The usage of CannyEdgeDetector
- * */
-	/*	//create the detector
-		CannyEdgeDetector detector = new CannyEdgeDetector();
-
-		String path = "\"C:\\Users\\Yao\\Desktop\\exp1.jpg";
-		BufferedImage frame = ImageIO.read(new File(path));
-		//adjust its parameters as desired
-		detector.setLowThreshold(0.5f);
-		detector.setHighThreshold(1f);
-
-		//apply it to an image
-		detector.setSourceImage(frame);
-		detector.process();
-		BufferedImage edges = detector.getEdgesImage();
-*/
-
-
-
-
-
 		// input a txt file that contains directory of the image
-		//handlePicture("C:\\Users\\Yao\\Desktop\\img\\dir.txt");
+		handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
 		System.out.println("Done.");
 	}
 
@@ -71,13 +48,27 @@ public class testing {
 			String newPath;
 			System.out.println(path + " is processing...");
 
-			// Adjust the brightness and change the image to binary
-			for (double i = 1; i <= 3.5; i += 0.5) {
+			//gray scale
+			BufferedImage gray = x.toGray(x.getBufferedImage());
+			//ImageIO.write(gray,"JPG",new File("C:\\Users\\Yao\\Desktop\\img\\Gray.jpg"));
 
+
+
+			// Canny Edge filter
+			newPath = path.substring(0, indexOfDot) + "_Edge.jpg";
+			BufferedImage edge = CannyEdgeDetect(gray);
+
+			ImageIO.write(edge,"JPG",new File(newPath));
+			extractBytes(newPath);
+
+
+
+			// Adjust the brightness and change the image to binary
+/*			for (double i = 1; i <= 4; i += 1) {
 				newPath = path.substring(0, indexOfDot) + "_new(" + i + ").jpg";
 				ImageIO.write(x.filtToBlackWhite((float) i), "JPG", new File(newPath));
 				extractBytes(newPath);
-			}
+			}*/
 		}
 		br.close();
 
@@ -94,8 +85,13 @@ public class testing {
 		int width = image.getWidth();
 
 		String dataPath_original = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_original.bin";
-		String dataPath_edited = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_edited.bin";
+		//String dataPath_edited = ImagePath.substring(0, ImagePath.lastIndexOf('.')) + "_data_edited.bin";
 
+		File data = new File(dataPath_original);
+		if(data.exists()){
+			if(!data.delete())
+				System.out.println("Deletion fails.");
+		}
 
 		byte[][] pixels = new byte[width][];
 		FileOutputStream fos = new FileOutputStream(dataPath_original, true);
@@ -103,27 +99,28 @@ public class testing {
 		for (int x = 0; x < width; x++) {
 			pixels[x] = new byte[height];
 			for (int y = 0; y < image.getHeight(); y++) {
-				pixels[x][y] = (byte) (image.getRGB(x, y) == 0xFFFFFFFF ? 1 : 0); // The output is either 1 or 0
+				int color = image.getRGB(x,y);
+				pixels[x][y] = (byte) (((color>>16 & 0xFF)> 0xBF && (color>>8 & 0xFF)> 0xBF && (color & 0xFF)> 0xBF)
+						? 1 : 0); // The output is either 1 or 0
 			}
 			fos.write(pixels[x]);
-		}			fos.close();
+		}
+		fos.close();
 
 
-		clearNoise(pixels);
+/*		clearNoise(pixels);
 
 		for (int i = 0; i < width; i++) {
 			FileUtils.writeByteArrayToFile(new File(dataPath_edited), pixels[i], true);
-		}
+		}*/
 
 	}
-
 
 	/**
 	 * Use for clearing the noise edge
 	 * Remove single or multiple small black dots from the array of data
 	 * Add the single black dot to the white spot where its upper and lower pixels are black
 	 */
-
 	private static void clearNoise( byte[][] pixels) {
 		noiseRemove.removeNoise(pixels, 3, 2);
 		noiseRemove.removeNoise(pixels, 2, 2);
@@ -134,6 +131,28 @@ public class testing {
 		noiseRemove.addBlack(pixels);
 	}
 
+	/**
+	 * The default type of the image is jpg
+	 * @param directory The directory where the image will be stored
+	 * @param bufferedImage The output image
+	 */
+	public static void outputImg(String directory, BufferedImage bufferedImage) throws IOException{
+		File outputfile = new File(directory);
+		ImageIO.write(bufferedImage, "jpg", outputfile);
+	}
 
+	public static BufferedImage CannyEdgeDetect(BufferedImage frame){
 
+		//create the detector
+		CannyEdgeDetector detector = new CannyEdgeDetector();
+
+		//adjust its parameters as desired
+		detector.setLowThreshold(1f);
+		detector.setHighThreshold(3f);
+
+		//apply it to an image
+		detector.setSourceImage(frame);
+		detector.process();
+		return detector.getEdgesImage();
+	}
 }

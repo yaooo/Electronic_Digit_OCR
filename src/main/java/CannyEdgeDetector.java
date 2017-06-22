@@ -556,7 +556,7 @@ public class CannyEdgeDetector {
         //in any other format other than an INT_ARGB type BufferedImage.
         //This may be easily remedied by providing alternative accessors.
         if (edgesImage == null) {
-            edgesImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+            edgesImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         }
         edgesImage.getWritableTile(0, 0).setDataElements(0, 0, width, height, pixels);
     }

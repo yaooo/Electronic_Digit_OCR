@@ -13,7 +13,6 @@ public class noiseRemove {
     public static void removeNoise(byte[][] pixels, int numOfByte, int numOfOperations){
         int xMax = pixels.length - numOfByte;
         int yMax = pixels[0].length -numOfByte;
-        //System.out.println("dimension " + yMax + " " + xMax);
         for(int i = 1; i < xMax; i ++){
             for (int j = 1; j < yMax; j++){
                 isConsecutiveBlack(i, j, numOfByte, pixels);
@@ -22,6 +21,16 @@ public class noiseRemove {
 
     }
 
+
+    /**
+     * @param pixels The input matrix of the binary data
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param numOfByte The number of byte we consider
+     *                  Example: (w = "white", b = "black")
+     *                  if numOfByte = 1; when we see "w b w", we change "b" to "w"
+     *                  if numOfByte = 2; when we see "w b b w", we change "b b" to "w w", etc.
+     */
     private static void isConsecutiveBlack(int x, int y, int numOfByte, byte[][]pixels){
         switch (numOfByte) {
 
@@ -60,6 +69,10 @@ public class noiseRemove {
 
     }
 
+    /**
+     * When a white block is in between two black block, change it to black
+     * @param pixels Input matrix
+     */
     public static void addBlack(byte[][] pixels){
         for(int i = 1; i < pixels.length - 1; i ++){
             for (int j = 1; j < pixels[0].length - 1; j++){
