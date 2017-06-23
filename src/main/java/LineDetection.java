@@ -10,6 +10,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import org.bytedeco.javacpp.Loader;
+import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.OpenCVFrameConverter;
@@ -22,12 +24,12 @@ import javax.swing.*;
  */
 public class LineDetection {
 
-    private static final int[] WHITE = {255, 255, 255};
-    private static final int[] BLACK = {0, 0, 0};
+/*    private static final int[] WHITE = {255, 255, 255};
+    private static final int[] BLACK = {0, 0, 0};*/
 
     public static void main(String [] args) throws IOException{
         String Path = "C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg";
-        String tempPath = Path.substring(0,Path.lastIndexOf('.'))+"_temp.jpg"; //Decide if deleting this file later
+       // String tempPath = Path.substring(0,Path.lastIndexOf('.'))+"_temp.jpg"; //Decide if deleting this file later
 
 
         Picture p = new Picture(Path);
@@ -59,7 +61,6 @@ public class LineDetection {
         morphologyEx(BW, closed, MORPH_CLOSE, element5);
         imshow("Closed",closed);
 
-
         waitKey(0);
 
     }
@@ -86,6 +87,7 @@ public class LineDetection {
 
     } // Unused, keep it here just in case
 
+/*
     private static BufferedImage CannyEdgeDetect(Mat mat, String path){
         BufferedImage frame = matToBufferedImage(mat, path);
         System.out.println("dimension" + frame.getWidth() +" "+frame.getHeight());
@@ -102,6 +104,7 @@ public class LineDetection {
         detector.process();
         return detector.getEdgesImage();
     } // Use JavaCV default instead, DO NOT USE THIS
+*/
 
 
     //TODO: Replace this method for a better one later
@@ -114,6 +117,54 @@ public class LineDetection {
         BufferedImage buff = new Picture(path).getBufferedImage();
         if(!new File(path).delete()) System.out.println("matToBufferedImage deletion fails.");
         return  buff;
+    }
+
+    private static RotatedRect findContours(Mat input){
+        IplImage srcImage = new IplImage(input);
+
+        IplImage resultImage = cvCloneImage(srcImage);
+
+        CvMemStorage mem = CvMemStorage.create();
+
+
+        CvSeq contours = new CvSeq();
+        CvSeq ptr = new CvSeq();
+
+        //TODO: Add finding contours and return a rotated Rect obj
+        return null;
+    }
+
+
+    // set the area range for the image, and compare the ratio of the screen
+    private static boolean verifySizes(RotatedRect mr)
+    {
+        float error = 0.3f;
+
+
+        //size of the bigger screen: 5.2 x 4.7 mm, thus, m_aspect = 1.10638298
+        float aspect = 1.10638298f;
+
+
+        //Set a min and max area.
+        int max= Math.round(480*480/aspect); // maximum area
+        int min= Math.round(max/4);
+
+
+        //Get only rectangles that match to a respect ratio.
+        float rmin= aspect-aspect*error;
+        float rmax= aspect+aspect*error;
+
+
+        int area = Math.round(mr.size().area());
+
+        float r = mr.size().width() / mr.size().height();
+        if(r < 1)
+        {
+            r= mr.size().height() / mr.size().width();
+        }
+
+        return (!( area < min || area > max ) || ( r < rmin || r > rmax ));
+
     }
 
 }
