@@ -1,23 +1,12 @@
 import static org.bytedeco.javacpp.opencv_core.*;
-import static org.bytedeco.javacpp.opencv_highgui.cvDestroyAllWindows;
-import static org.bytedeco.javacpp.opencv_highgui.imshow;
-import static org.bytedeco.javacpp.opencv_highgui.waitKey;
+import static org.bytedeco.javacpp.opencv_highgui.*;
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;
 import static org.bytedeco.javacpp.opencv_imgproc.*;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import org.bytedeco.javacpp.Loader;
-import org.bytedeco.javacpp.opencv_core;
-import org.bytedeco.javacpp.opencv_core.Mat;
-import org.bytedeco.javacv.CanvasFrame;
-import org.bytedeco.javacv.OpenCVFrameConverter;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 
 /**
  * @author Yao Shi
@@ -47,21 +36,34 @@ public class LineDetection {
 
         //canny edge detect
         Mat contours = new Mat();
-        Canny(blurred, contours, 20, 40, 3,true); //TODO: adjust the threshold for the upper and lower bounds
+        Canny(blurred, contours, 20, 40, 3, true);
         imshow("canny",contours);
 
-        // TO Binary image
+        //Binary image
+        //TODO change the thresh to make sure the black is at lest 50% of the image
         Mat BW = new Mat();
         threshold(blurred,BW,120,255,0);
         imshow("Binary image",BW);
         Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
+
+        //TODO: try OPEN then CLose
+      /*  Mat open = new Mat();
+        morphologyEx(BW, open, MORPH_OPEN, element5);
+        imshow("Open",open);*/
+
 
         //Morphological closing
         Mat closed = new Mat();
         morphologyEx(BW, closed, MORPH_CLOSE, element5);
         imshow("Closed",closed);
 
+
+        Houghlines.HoughTransform(closed);
+
+
         waitKey(0);
+
+        //helpFindContours(closed);
 
     }
 
@@ -72,39 +74,6 @@ public class LineDetection {
         blur(src,dest,KernelSize);
         return dest;
     }
-
-    private static void displayImage(BufferedImage img2) {
-        //BufferedImage img=ImageIO.read(new File("/HelloOpenCV/lena.png"));
-        ImageIcon icon=new ImageIcon(img2);
-        JFrame frame=new JFrame();
-        frame.setLayout(new FlowLayout());
-        frame.setSize(img2.getWidth(null)+50, img2.getHeight(null)+50);
-        JLabel lbl=new JLabel();
-        lbl.setIcon(icon);
-        frame.add(lbl);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-    } // Unused, keep it here just in case
-
-/*
-    private static BufferedImage CannyEdgeDetect(Mat mat, String path){
-        BufferedImage frame = matToBufferedImage(mat, path);
-        System.out.println("dimension" + frame.getWidth() +" "+frame.getHeight());
-
-        //create the detector
-        CannyEdgeDetector detector = new CannyEdgeDetector();
-
-        //adjust its parameters as desired
-        detector.setLowThreshold(1f);
-        detector.setHighThreshold(3f);
-
-        //apply it to an image
-        detector.setSourceImage(frame);
-        detector.process();
-        return detector.getEdgesImage();
-    } // Use JavaCV default instead, DO NOT USE THIS
-*/
 
 
     //TODO: Replace this method for a better one later
@@ -119,19 +88,29 @@ public class LineDetection {
         return  buff;
     }
 
-    private static RotatedRect findContours(Mat input){
+    private static void helpFindContours(Mat input){ //TODO: DEBUG
         IplImage srcImage = new IplImage(input);
 
         IplImage resultImage = cvCloneImage(srcImage);
 
-        CvMemStorage mem = CvMemStorage.create();
+        MatVector contours = new MatVector();
+        findContours(input,contours,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
 
+        Mat draw = new Mat();
+        draw.zero();
+        for (int i = 0; i < contours.size(); i++){
+            Scalar color = new Scalar(255,255,255,0);
 
-        CvSeq contours = new CvSeq();
-        CvSeq ptr = new CvSeq();
+            drawContours(draw, contours, i, color);
 
+        }
+
+        namedWindow( "Contours", CV_WINDOW_AUTOSIZE );
+        imshow( "Contours", draw);
+
+        waitKey(0);
         //TODO: Add finding contours and return a rotated Rect obj
-        return null;
+
     }
 
 
