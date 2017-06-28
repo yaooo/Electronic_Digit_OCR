@@ -1,5 +1,4 @@
 import structures.Node;
-
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_highgui.*;
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;
@@ -22,7 +21,7 @@ public class LineDetection {
         String Path = "C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg";
        // String tempPath = Path.substring(0,Path.lastIndexOf('.'))+"_temp.jpg"; //Decide if deleting this file later
 
-        Picture p = new Picture(Path);
+       // Picture p = new Picture(Path);
         Mat original = imread(Path);
         imshow("original",original);
 
@@ -54,13 +53,31 @@ public class LineDetection {
 
         // Choose to use HoughLP instead
         //Houghlines.HoughTransform(closed);
-
         // store the points and slope in a form of a linked list
         Node list_data_slope = Houghlines.HoughLP(closed);
         Node.traverse(list_data_slope);
 
+        Node lastNode = Node.lastNode(list_data_slope);
+        Node beforeLastNode = Node.NodeBeforelastNode(list_data_slope);
+
+        double angle1 = Node.findAngle(list_data_slope.next,lastNode);
+        double angle2 = Node.findAngle(list_data_slope.next,beforeLastNode);
+
+        System.out.println(lastNode.slope);
+        System.out.println(beforeLastNode.slope);
+
+        System.out.println("Angles:" + angle1 +"  "+angle2);
+
+
         waitKey(0);
     }
+
+
+    private static void imgProc(String path){
+
+
+    }
+
 
     private static Mat GaussianBlur(Mat src){
         Mat dest = new Mat();

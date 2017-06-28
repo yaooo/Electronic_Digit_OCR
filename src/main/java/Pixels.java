@@ -13,7 +13,7 @@ import java.io.IOException;
 
 
 /**
- * TODO: This class is basically useless once importing opencv
+ * TODO: This class is basically useless once importing openCV
  */
 
 public class Pixels {
