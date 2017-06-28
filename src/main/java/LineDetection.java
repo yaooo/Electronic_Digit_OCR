@@ -1,3 +1,5 @@
+import structures.Node;
+
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_highgui.*;
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;
@@ -20,7 +22,6 @@ public class LineDetection {
         String Path = "C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg";
        // String tempPath = Path.substring(0,Path.lastIndexOf('.'))+"_temp.jpg"; //Decide if deleting this file later
 
-
         Picture p = new Picture(Path);
         Mat original = imread(Path);
         imshow("original",original);
@@ -34,7 +35,7 @@ public class LineDetection {
         Mat blurred = GaussianBlur(gray);
         imshow("Blurred", blurred);
 
-        //canny edge detect
+        //TODO: canny edge detector, this part is not used anywhere in this program so far
         Mat contours = new Mat();
         Canny(blurred, contours, 20, 40, 3, true);
         imshow("canny",contours);
@@ -44,29 +45,22 @@ public class LineDetection {
         Mat BW = new Mat();
         threshold(blurred,BW,120,255,0);
         imshow("Binary image",BW);
-        Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
-
-        //TODO: try OPEN then CLose
-      /*  Mat open = new Mat();
-        morphologyEx(BW, open, MORPH_OPEN, element5);
-        imshow("Open",open);*/
-
 
         //Morphological closing
+        Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
         Mat closed = new Mat();
         morphologyEx(BW, closed, MORPH_CLOSE, element5);
         imshow("Closed",closed);
 
+        // Choose to use HoughLP instead
+        //Houghlines.HoughTransform(closed);
 
-        Houghlines.HoughTransform(closed);
-
+        // store the points and slope in a form of a linked list
+        Node list_data_slope = Houghlines.HoughLP(closed);
+        Node.traverse(list_data_slope);
 
         waitKey(0);
-
-        //helpFindContours(closed);
-
     }
-
 
     private static Mat GaussianBlur(Mat src){
         Mat dest = new Mat();
@@ -74,7 +68,6 @@ public class LineDetection {
         blur(src,dest,KernelSize);
         return dest;
     }
-
 
     //TODO: Replace this method for a better one later
     private static BufferedImage matToBufferedImage(Mat matBGR, String path) {
@@ -87,32 +80,6 @@ public class LineDetection {
         if(!new File(path).delete()) System.out.println("matToBufferedImage deletion fails.");
         return  buff;
     }
-
-    private static void helpFindContours(Mat input){ //TODO: DEBUG
-        IplImage srcImage = new IplImage(input);
-
-        IplImage resultImage = cvCloneImage(srcImage);
-
-        MatVector contours = new MatVector();
-        findContours(input,contours,CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-
-        Mat draw = new Mat();
-        draw.zero();
-        for (int i = 0; i < contours.size(); i++){
-            Scalar color = new Scalar(255,255,255,0);
-
-            drawContours(draw, contours, i, color);
-
-        }
-
-        namedWindow( "Contours", CV_WINDOW_AUTOSIZE );
-        imshow( "Contours", draw);
-
-        waitKey(0);
-        //TODO: Add finding contours and return a rotated Rect obj
-
-    }
-
 
     // set the area range for the image, and compare the ratio of the screen
     private static boolean verifySizes(RotatedRect mr)
@@ -147,8 +114,3 @@ public class LineDetection {
     }
 
 }
-
-
-
-
-

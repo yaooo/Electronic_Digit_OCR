@@ -11,6 +11,11 @@ import java.io.IOException;
  * @author Yao Shi
  */
 
+
+/**
+ * TODO: This class is basically useless once importing opencv
+ */
+
 public class Pixels {
     /**
      * Getting an array that contains height(default: 640) X 20 pixels.
