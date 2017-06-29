@@ -19,9 +19,12 @@ public class LineDetection {
 
     public static void main(String [] args) throws IOException{
         String Path = "C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg";
-       // String tempPath = Path.substring(0,Path.lastIndexOf('.'))+"_temp.jpg"; //Decide if deleting this file later
+        imgProc(Path);
+    }
 
-       // Picture p = new Picture(Path);
+
+    private static void imgProc(String Path){
+        // Picture p = new Picture(Path);
         Mat original = imread(Path);
         imshow("original",original);
 
@@ -57,6 +60,7 @@ public class LineDetection {
         Node list_data_slope = Houghlines.HoughLP(closed);
         Node.traverse(list_data_slope);
 
+/*
         Node lastNode = Node.lastNode(list_data_slope);
         Node beforeLastNode = Node.NodeBeforelastNode(list_data_slope);
 
@@ -67,14 +71,10 @@ public class LineDetection {
         System.out.println(beforeLastNode.slope);
 
         System.out.println("Angles:" + angle1 +"  "+angle2);
+*/
 
 
         waitKey(0);
-    }
-
-
-    private static void imgProc(String path){
-
 
     }
 

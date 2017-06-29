@@ -1,5 +1,9 @@
 package structures;
 
+import org.jetbrains.annotations.Contract;
+
+import java.awt.*;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Node {
     private int x1,x2,y1,y2;
-    public double  slope;
+    private double  slope;
     public Node next;
 
     public Node(int x1, int y1, int x2, int y2) {
@@ -15,8 +19,28 @@ public class Node {
         this.y1 = y1;
         this.x2 = x2;
         this.y2 = y2;
-        this.slope = -(y2-y1)/(x2-x1); // since the origin(0,0) is on the top left corner
+        this.slope = (y2-y1)/(x2-x1); // since the origin(0,0) is on the top left corner
         this.next = null;
+    }
+
+    public int getX1() {
+        return x1;
+    }
+
+    public int getX2() {
+        return x2;
+    }
+
+    public int getY1() {
+        return y1;
+    }
+
+    public int getY2() {
+        return y2;
+    }
+
+    public double getSlope() {
+        return slope;
     }
 
     public static Node add(int x1, int y1, int x2, int y2, Node list){
@@ -45,45 +69,16 @@ public class Node {
     public static void traverse(Node list){
         if(list == null)
             System.out.println("List is empty.");
-        while(list != null){
-            String xyslope = "Point: p1 (" + list.x1 + "," + list.y1 +") ,p2 (" + list.x2 + "," + list.y2 +")---------> Slope:" + list.slope;
+        Node temp = list;
+        while(temp != null){
+            String xyslope = "Point: p1 (" + temp.x1 + "," + temp.y1 +") ,p2 (" + temp.x2 + "," + temp.y2 +")---------> Slope:" + temp.slope;
             System.out.println(xyslope);
-            list = list.next;
+            System.out.println("Angle between current node and the first node: "+Line.angle(list,temp)+"\n---------------------------------------");
+            temp = temp.next;
         }
-    }
-
-    // find angle using dot product, pass in nodes
-    public static double findAngle(Node node1, Node node2){
-        int flag = 1;
-        double slope1 = node1.slope;
-        double slope2 = node2.slope;
-
-        double avg_y1 = (double)(node1.y1+node1.y2)/2;
-        double avg_y2 = (double)(node2.y1+node2.y2)/2;
-        double avg_x1 = (double)(node1.x1+node1.x2)/2;
-        double avg_x2 = (double)(node2.x1+node2.x2)/2;
-        if(slope1 > slope2){
-            if(avg_x1 > avg_x2) flag = (avg_y1 < avg_y2)? 1:-1;
-            else flag = (avg_y1 < avg_y2)? -1:1;
-        }else{//slope1 <slope2
-            if(avg_x1 < avg_x2) flag = (avg_y1 < avg_y2)? -1:1;
-            else flag = (avg_y1 < avg_y2)? 1:-1;
-        }
-
-
-        return  findAngleUsingSlope(slope1,slope2,flag);
-    }
-
-    // find angle directly using slopes, pass in slopes
-    // flag can be set to -1 or 1 depend on the vector direction
-    public static double findAngleUsingSlope(double slope1, double slope2, int flag){
-        double AdotB = flag + slope1*slope2;
-        double ABProduct = Math.sqrt((1+slope1*slope1)*(1+slope2*slope2));
-        return  Math.toDegrees(Math.acos(AdotB/ABProduct));
     }
 
     // Using recursion, feel free to change it back to regular loop
-    //
     public static Node lastNode(Node list){
         if(list == null)
             return null;

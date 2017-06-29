@@ -94,7 +94,7 @@ public class Houghlines {
         cvtColor(binary, rgb, CV_GRAY2BGR);
 
 
-        HoughLinesP(binary, lines, 1, CV_PI/180,100,100,15);
+        HoughLinesP(binary, lines, 1, CV_PI/180,100,100,20);
 
         IntRawIndexer sI = lines.createIndexer();
         System.out.print("New Method:\n\n");
