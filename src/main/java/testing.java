@@ -5,6 +5,7 @@
 import org.apache.commons.io.FileUtils;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,9 +17,27 @@ public class testing {
 
 	public static void main(String[] args) throws IOException {
 
+		Picture img = new Picture("C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg");
+
+		BufferedImage im = img.getBufferedImage();
+
+		for(int i = 0; i < im.getWidth() ; i++){
+			for(int j = 0; j < im.getHeight(); j++){
+				int rgb = im.getRGB(i,j);
+				int red = (rgb >> 16) & 0x000000FF;
+				int green = (rgb >>8 ) & 0x000000FF;
+				int blue = (rgb) & 0x000000FF;
+
+				float[] hsv = new float[3];
+				Color.RGBtoHSB(red,green,blue,hsv);
+
+			}
+
+		}
+
 		// input a txt file that contains directory of the image
-		handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
-		System.out.println("Done.");
+		//handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
+		//System.out.println("Done.");
 	}
 
 	/**

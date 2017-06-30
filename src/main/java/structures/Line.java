@@ -54,7 +54,6 @@ public class Line {
     }
 
 
-    //TODO DEBUG the dot product???
     public static double angle(Node one, Node two){
         if(one.getSlope() == two.getSlope()) return 0;
 
@@ -67,8 +66,9 @@ public class Line {
         double dot = v1[0]*v2[0]+v1[1]*v2[1];
         double mag_v1 = Math.sqrt ( v1[0]*v1[0] + v1[1]*v1[1] );
         double mag_v2 = Math.sqrt ( v2[0]*v2[0] + v2[1]*v2[1]  );
-        return Math.toDegrees(Math.acos((double) (dot/(mag_v1*mag_v2))));
+        double angle = Math.toDegrees(Math.acos((double) (dot/(mag_v1*mag_v2))));
 
+        return (double)((int)(angle*1000))/1000; // keep three decimal place for the angle
     }
 
 

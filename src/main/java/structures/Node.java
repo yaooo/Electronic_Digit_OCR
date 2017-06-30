@@ -14,12 +14,30 @@ public class Node {
     private double  slope;
     public Node next;
 
+
+    /**
+     * (x1,y1) and (x2,y2) are input points
+     * IMPORTANT: (x1,y1) should always be closed to the origin(0,0)
+     */
+
     public Node(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.slope = (y2-y1)/(x2-x1); // since the origin(0,0) is on the top left corner
+        if(Math.hypot(x1,y1) > Math.hypot(x2,y2)) {
+            this.x1 = x1;
+            this.y1 = y1;
+            this.x2 = x2;
+            this.y2 = y2;
+        }else{
+            this.x1 = x2;
+            this.y1 = y2;
+            this.x2 = x1;
+            this.y2 = y1;
+        }
+
+        if(x1==x2){
+            this.slope = Double.POSITIVE_INFINITY;
+        } else{
+            this.slope =(double)((int)(((double)(y2-y1)/(double)(x2-x1))*1000))/1000;
+        } // Keep three decimal place for slope
         this.next = null;
     }
 
@@ -49,13 +67,16 @@ public class Node {
             return added;
         }
         Node temp = list;
-
+        if(added.getSlope() <= list.getSlope()) {
+            added.next = list;
+            return added;
+        }
         while(true){
             if(temp.next == null){
                 temp.next = added;
                 break;
             }
-            if(temp.slope <= added.slope && added.slope <= temp.next.slope){
+            if(temp.getSlope() <= added.getSlope() && added.getSlope() <= temp.next.getSlope()){
                 added.next = temp.next;
                 temp.next = added;
                 break;
@@ -66,14 +87,39 @@ public class Node {
         return list;
     }
 
+    public static Node add(Node added, Node list){
+        if(list == null){
+            return added;
+        }
+        Node temp = list;
+
+        if(added.getSlope() <= list.getSlope()) {
+            added.next = list;
+            return added;
+        }
+        while(true){
+            if(temp.next == null){
+                temp.next = added;
+                break;
+            }
+            if(temp.getSlope() <= added.getSlope() && added.getSlope() <= temp.next.getSlope()){
+                added.next = temp.next;
+                temp.next = added;
+                break;
+            }
+            temp = temp.next;
+        }
+        return list;
+    }
+
     public static void traverse(Node list){
         if(list == null)
-            System.out.println("List is empty.");
+            System.out.println("This list is empty.");
         Node temp = list;
         while(temp != null){
-            String xyslope = "Point: p1 (" + temp.x1 + "," + temp.y1 +") ,p2 (" + temp.x2 + "," + temp.y2 +")---------> Slope:" + temp.slope;
+            String xyslope = "Point: p1 (" + temp.getX1() + "," + temp.getY1() +") ,p2 (" + temp.getX2() + "," + temp.getY2() +")---------> Slope:" + temp.getSlope();
             System.out.println(xyslope);
-            System.out.println("Angle between current node and the first node: "+Line.angle(list,temp)+"\n---------------------------------------");
+            //System.out.println("Angle between current node and the first node: "+Line.angle(list,temp)+"\n---------------------------------------");
             temp = temp.next;
         }
     }
@@ -95,6 +141,4 @@ public class Node {
 
         return NodeBeforelastNode(list.next);
     }
-
-
 }
