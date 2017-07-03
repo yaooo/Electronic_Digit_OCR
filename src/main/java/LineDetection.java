@@ -61,11 +61,6 @@ public class LineDetection {
         blur(gray,blurred,KernelSize);
         //imshow("Blurred", blurred);
 
-        //TODO: canny edge detector, this part is not used anywhere in this program so far
-        Mat contours = new Mat();
-        Canny(blurred, contours, 20, 40, 3, true);
-        //imshow("canny",contours);
-
         //Binary image
         Mat BW = Binary(blurred);//change the threshold to make sure the black is at lest 50% of the image
         imshow("Binary image",BW);
@@ -95,10 +90,6 @@ public class LineDetection {
         moveWindow("Binary image",500, 20);
         moveWindow("Open",980, 20);
         moveWindow("New Method for Hough",1450, 20);
-
-
-
-
         waitKey(0);
 
     }
@@ -161,19 +152,6 @@ public class LineDetection {
 
         return (!( area < min || area > max ) || ( r < rmin || r > rmax ));
 
-    }
-
-    static void display(String caption,Mat image) {
-        // Create image window named "My Image".
-        final CanvasFrame canvas = new CanvasFrame(caption, 1.0);
-
-        // Request closing of the application when the image window is closed.
-        canvas.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        // Convert from OpenCV Mat to Java Buffered image for display
-        final OpenCVFrameConverter converter = new OpenCVFrameConverter.ToMat();
-        // Show image on window.
-        canvas.showImage(converter.convert(image));
     }
 
 }

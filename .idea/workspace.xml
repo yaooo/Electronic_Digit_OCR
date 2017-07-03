@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/LineDetection.java" line="124" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/LineDetection.java" line="115" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5886bd25-e953-402e-a17b-803b42ea4678" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Houghlines.class" afterPath="$PROJECT_DIR$/build/classes/main/Houghlines.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/LineDetection.class" afterPath="$PROJECT_DIR$/build/classes/main/LineDetection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/structures/Line.class" afterPath="$PROJECT_DIR$/build/classes/main/structures/Line.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/structures/Node.class" afterPath="$PROJECT_DIR$/build/classes/main/structures/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/testing.class" afterPath="$PROJECT_DIR$/build/classes/main/testing.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Houghlines.java" afterPath="$PROJECT_DIR$/src/main/java/Houghlines.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/LineDetection.java" afterPath="$PROJECT_DIR$/src/main/java/LineDetection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/structures/Line.java" afterPath="$PROJECT_DIR$/src/main/java/structures/Line.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/structures/Node.java" afterPath="$PROJECT_DIR$/src/main/java/structures/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/testing.java" afterPath="$PROJECT_DIR$/src/main/java/testing.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -79,84 +73,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/structures/Node.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
-              <folding>
-                <element signature="docComment;class#Node#0" expanded="false" />
-                <element signature="method#traverse#0;class#Node#0" expanded="false" />
-                <element signature="method#lastNode#0;class#Node#0" expanded="false" />
-                <element signature="method#NodeBeforelastNode#0;class#Node#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Line.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/structures/Line.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding>
-                <element signature="method#vector#0;class#Line#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Houghlines.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="96" column="53" lean-forward="false" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-              <folding>
-                <element signature="method#HoughTransform#0;class#Houghlines#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LineDetection.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LineDetection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/LineDetection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="96" column="45" lean-forward="false" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+            <state relative-caret-position="587">
+              <caret line="88" column="11" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
-                <element signature="method#Binary#0;class#LineDetection#0" expanded="false" />
+                <element signature="docComment;class#LineDetection#0" expanded="false" />
+                <element signature="e#1732#1754#0" expanded="false" />
+                <element signature="e#1901#1930#0" expanded="false" />
+                <element signature="e#2459#2482#0" expanded="false" />
+                <element signature="method#matToBufferedImage#0;class#LineDetection#0" expanded="false" />
                 <element signature="method#verifySizes#0;class#LineDetection#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CanvasFrame.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.3.2/9eab7ff3fec6dfa5b07341233d7bb988c0095a7/javacv-1.3.2-sources.jar!/org/bytedeco/javacv/CanvasFrame.java">
+      <file leaf-file-name="BlurTesting.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BlurTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3751">
-              <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+            <state relative-caret-position="25">
+              <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="opencv_highgui.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_highgui.java">
+      <file leaf-file-name="BlurTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BlurTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-307">
-              <caret line="841" column="43" lean-forward="false" selection-start-line="841" selection-start-column="43" selection-end-line="841" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/testing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="130" column="0" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="135" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="625">
+              <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,6 +117,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -185,6 +137,8 @@
       <find>lines</find>
       <find>this</find>
       <find>slope</find>
+      <find>color</find>
+      <find>imagedata</find>
     </findStrings>
     <replaceStrings>
       <replace>line1</replace>
@@ -617,20 +571,23 @@
         <option value="$PROJECT_DIR$/src/main/java/HoughLines_TEST.java" />
         <option value="$PROJECT_DIR$/src/main/java/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/Pixels.java" />
-        <option value="$PROJECT_DIR$/src/main/java/testing.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Line.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/structures/Location.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Houghlines.java" />
+        <option value="$PROJECT_DIR$/src/main/java/testing.java" />
         <option value="$PROJECT_DIR$/src/main/java/LineDetection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Houghlines.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BlurTestTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BlurTesting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BlurTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="2418" />
-    <option name="height" value="1318" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -746,7 +703,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -772,10 +729,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -787,39 +740,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="gradle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OCR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OCR_DIGIT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="wrapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -828,7 +759,17 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/commons-io-2.5" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://C:/Users/Yao/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.3.2/ce47602c0eabccc7b3fa456a054c9fb4c9e2915e/javacpp-1.3.2-sources.jar!/org/bytedeco/javacpp/indexer/Indexer.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Yao/workspace/OCR_DIGIT/src/main/java/BlurTest.java" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -842,7 +783,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LineDetection">
+  <component name="RunManager" selected="Application.BlurTesting">
     <configuration default="false" name="testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="testing" />
@@ -881,6 +822,21 @@
     <configuration default="false" name="LineDetection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="LineDetection" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="OCR_main" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BlurTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="BlurTesting" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1106,16 +1062,18 @@
       <listeners />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.testing" />
       <item index="1" class="java.lang.String" itemvalue="Application.RetinaExample" />
       <item index="2" class="java.lang.String" itemvalue="Application.LineDetection" />
+      <item index="3" class="java.lang.String" itemvalue="Application.BlurTesting" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.LineDetection" />
-        <item index="1" class="java.lang.String" itemvalue="Application.testing" />
-        <item index="2" class="java.lang.String" itemvalue="Application.RetinaExample" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.BlurTesting" />
+        <item index="1" class="java.lang.String" itemvalue="Application.LineDetection" />
+        <item index="2" class="java.lang.String" itemvalue="Application.testing" />
+        <item index="3" class="java.lang.String" itemvalue="Application.RetinaExample" />
       </list>
     </recent_temporary>
   </component>
@@ -1142,7 +1100,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1154,15 +1112,15 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31960997" sideWeight="0.50186664" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24284475" sideWeight="0.49813333" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19314642" sideWeight="0.49813333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43365136" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41876048" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12980358" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12899786" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24978651" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1198,36 +1156,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.5/caf033a4a7c37b4a8ff3ea084cba591539b0b69/commons-io-2.5-sources.jar!/org/apache/commons/io/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-411">
-          <caret line="2152" column="23" lean-forward="false" selection-start-line="2152" selection-start-column="23" selection-end-line="2152" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.boofcv/all/0.23/e46642909c8358648af09405d02f1a5b327f6253/all-0.23-sources.jar!/boofcv/All.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/image/BufferedImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24356">
-          <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/awt/image/BytePackedRaster.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="501" column="0" lean-forward="false" selection-start-line="501" selection-start-column="0" selection-end-line="501" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Morphology.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/samples/BioInspiredRetina.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/samples/RetinaExample.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/samples/BlobDemo.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/samples/FaceRecognizerInVideo.java" />
@@ -1296,13 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/helper/opencv_core.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="232" column="32" lean-forward="false" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.3.2/9eab7ff3fec6dfa5b07341233d7bb988c0095a7/javacv-1.3.2-sources.jar!/org/bytedeco/javacv/OpenCVFrameConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1340,13 +1261,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HoughLines_TEST.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_imgproc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="7489" column="43" lean-forward="false" selection-start-line="7489" selection-start-column="43" selection-end-line="7489" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Picture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1079">
@@ -1430,19 +1344,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_core.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-920">
-          <caret line="15368" column="47" lean-forward="false" selection-start-line="15368" selection-start-column="47" selection-end-line="15368" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.3.2/ce47602c0eabccc7b3fa456a054c9fb4c9e2915e/javacpp-1.3.2-sources.jar!/org/bytedeco/javacpp/Pointer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="734" column="33" lean-forward="false" selection-start-line="734" selection-start-column="33" selection-end-line="734" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1454,19 +1359,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Line.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.3.2/9eab7ff3fec6dfa5b07341233d7bb988c0095a7/javacv-1.3.2-sources.jar!/org/bytedeco/javacv/CanvasFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="method#vector#0;class#Line#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-3751">
+          <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_imgproc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="4273" column="43" lean-forward="false" selection-start-line="4273" selection-start-column="43" selection-end-line="4273" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_core.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="4308" column="45" lean-forward="false" selection-start-line="4308" selection-start-column="45" selection-end-line="4308" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/helper/opencv_core.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="479" column="40" lean-forward="true" selection-start-line="479" selection-start-column="40" selection-end-line="479" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BlurTestTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/BlurTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/BlurTesting.java" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.3.2/ce47602c0eabccc7b3fa456a054c9fb4c9e2915e/javacpp-1.3.2-sources.jar!/org/bytedeco/javacpp/indexer/IntRawIndexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="66" column="25" lean-forward="false" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/structures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
+        <state relative-caret-position="36">
           <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#Node#0" expanded="false" />
@@ -1477,47 +1419,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacv/1.3.2/9eab7ff3fec6dfa5b07341233d7bb988c0095a7/javacv-1.3.2-sources.jar!/org/bytedeco/javacv/CanvasFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/Line.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3751">
-          <caret line="58" column="13" lean-forward="false" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        <state relative-caret-position="435">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="method#vector#0;class#Line#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1556">
+          <caret line="97" column="12" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_highgui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="841" column="43" lean-forward="false" selection-start-line="841" selection-start-column="43" selection-end-line="841" selection-end-column="43" />
+        <state relative-caret-position="930">
+          <caret line="876" column="42" lean-forward="false" selection-start-line="876" selection-start-column="42" selection-end-line="876" selection-end-column="42" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="130" column="0" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="135" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="96" column="53" lean-forward="false" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-          <folding>
-            <element signature="method#HoughTransform#0;class#Houghlines#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LineDetection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="96" column="45" lean-forward="false" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        <state relative-caret-position="587">
+          <caret line="88" column="11" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
-            <element signature="method#Binary#0;class#LineDetection#0" expanded="false" />
+            <element signature="docComment;class#LineDetection#0" expanded="false" />
+            <element signature="e#1732#1754#0" expanded="false" />
+            <element signature="e#1901#1930#0" expanded="false" />
+            <element signature="e#2459#2482#0" expanded="false" />
+            <element signature="method#matToBufferedImage#0;class#LineDetection#0" expanded="false" />
             <element signature="method#verifySizes#0;class#LineDetection#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BlurTesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BlurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="51" column="61" lean-forward="false" selection-start-line="51" selection-start-column="61" selection-end-line="51" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
