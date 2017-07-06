@@ -1,4 +1,5 @@
 import org.bytedeco.javacpp.indexer.IntRawIndexer;
+import org.bytedeco.javacpp.indexer.UByteRawIndexer;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.OpenCVFrameConverter;
 import structures.Location;
@@ -40,30 +41,38 @@ public class LineDetection {
         while ((sCurrentLine = br.readLine()) != null) {
             String path = abs + "\\" + sCurrentLine;
             System.out.println(path + " is processing...");
-            imgProc(path);
+            imgProcessing(path);
+
         }
         br.close();
     }
 
-    private static void imgProc(String Path){
-        // Picture p = new Picture(Path);
+    private static void imgProcessing(String Path){
         Mat original = imread(Path);
         imshow("original",original);
 
         //RGB to Gray
         Mat gray = new Mat();
-        cvtColor(original,gray,6);
-        //imshow("gray",gray);
+        cvtColor(original,gray,CV_RGB2GRAY);
 
         //Gaussian Blur
         Mat blurred = new Mat();
         Size KernelSize = new Size(3,3);
         blur(gray,blurred,KernelSize);
-        //imshow("Blurred", blurred);
 
         //Binary image
-        Mat BW = Binary(blurred);//change the threshold to make sure the black is at lest 50% of the image
+        Mat BW = Binary(blurred);//Adjust the threshold when change the image to binary
         imshow("Binary image",BW);
+
+
+
+        //threshold(blurred, dst, 100, 255, THRESH_OTSU);
+        Mat dst =  new Mat();
+        int bestThresh = otsu(blurred);
+        System.out.println("BEST threshold -------------->"+bestThresh);
+        threshold(blurred,dst,bestThresh,255,CV_THRESH_BINARY);
+        imshow("OTSU Binary", dst);
+
 
         //Morphological closing
         Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
@@ -79,13 +88,13 @@ public class LineDetection {
         // store the points and slope in a form of a linked list
         Node list_data_slope = Houghlines.HoughLP(open);
 
-        //Node list_data_slope1 = Houghlines.HoughLP(BW);
-
-        Node.traverse(list_data_slope);
+        //Node.traverse(list_data_slope);
 
         //Group the nodes based on their slopes and print them out
-        Node[] arr = Location.printGrouping(list_data_slope);
+       // Node[] arr = Location.printGrouping(list_data_slope);
 
+
+        //For testing only:
         moveWindow("original",20, 20);
         moveWindow("Binary image",500, 20);
         moveWindow("Open",980, 20);
@@ -94,7 +103,12 @@ public class LineDetection {
 
     }
 
-    public static Mat Binary(Mat blurred){
+    /**
+     * Adjust the threshold when change the image to a binary image, it is set to 50% black for now
+     * @param blurred The input image
+     * @return Output image with at least 50% black
+     */
+    private static Mat Binary(Mat blurred){
         boolean flag =  false;
         Mat BW = new Mat();
         int thresh = 100;
@@ -106,20 +120,15 @@ public class LineDetection {
             ratio = 1 - (double)countNonZero(BW)/(double)BW.rows()/(double)BW.cols();
             thresh += 5;
         }
-        return BW;
-    }
 
-
-    //TODO: Replace this method for a better one later
-    private static BufferedImage matToBufferedImage(Mat matBGR, String path) {
-        File temp = new File(path);
-        if(temp.exists()){
-            if(!temp.delete()) System.out.println("matToBufferedImage deletion fails.");
+        while(ratio > 0.7){
+            BW.zero();
+            threshold(blurred,BW,thresh,255,0);
+            ratio = 1 - (double)countNonZero(BW)/(double)BW.rows()/(double)BW.cols();
+            thresh -= 5;
         }
-        imwrite(path,matBGR);
-        BufferedImage buff = new Picture(path).getBufferedImage();
-        if(!new File(path).delete()) System.out.println("matToBufferedImage deletion fails.");
-        return  buff;
+
+        return BW;
     }
 
     // set the area range for the image, and compare the ratio of the screen
@@ -152,6 +161,69 @@ public class LineDetection {
 
         return (!( area < min || area > max ) || ( r < rmin || r > rmax ));
 
+    }
+
+    private static int otsu(Mat image)
+    {
+
+        int width = image.cols();
+        int height = image.rows();
+        int pixelCount[] = new int[256];
+        float pixelPro[] = new float[256];
+        int i, j, pixelSum = width * height, threshold = 0;
+
+        UByteRawIndexer sI = image.createIndexer();
+
+        // Initialize
+        for(i = 0; i < 256; i++){
+            pixelCount[i] = 0;
+            pixelPro[i] = 0;
+        }
+
+        // Find the number of pixels of different colors(0-255, since it is gray scaled)
+        for(i = 0; i < height; i++) {
+            for(j = 0;j <width;j++) {
+                int temp = sI.get(i*width+j);
+                pixelCount[temp]++;
+            }
+        }
+
+        // Have a histogram for it
+        for(i = 0; i < 256; i++) {
+            pixelPro[i] = (float)(pixelCount[i]) / (float)(pixelSum);
+        }
+
+        //ostu
+        float w0, w1, u0tmp, u1tmp, u0, u1, u,deltaTmp, deltaMax = 0;
+        for(i = 0; i < 256; i++)
+        {
+            w0 = w1 = u0tmp = u1tmp = u0 = u1 = u = deltaTmp = 0;
+
+            for(j = 0; j < 256; j++)
+            {
+                if(j <= i) {
+                    w0 += pixelPro[j];
+                    u0tmp += j * pixelPro[j];
+                }
+                else
+                {
+                    w1 += pixelPro[j];
+                    u1tmp += j * pixelPro[j];
+                }
+            }
+
+            u0 = u0tmp / w0;
+            u1 = u1tmp / w1;
+            u = u0tmp + u1tmp;
+            deltaTmp = w0 * (u0 - u)*(u0 - u) + w1 * (u1 - u)*(u1 - u);
+            if(deltaTmp > deltaMax)
+            {
+                deltaMax = deltaTmp;
+                threshold = i;
+            }
+        }
+
+        return threshold;
     }
 
 }

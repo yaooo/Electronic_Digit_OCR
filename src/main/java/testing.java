@@ -28,13 +28,17 @@ public class testing {
 				int green = (rgb >>8 ) & 0x000000FF;
 				int blue = (rgb) & 0x000000FF;
 
-				float[] hsv = new float[3];
-				Color.RGBtoHSB(red,green,blue,hsv);
+				int min = Math.min(Math.min(red,green),blue);
+				int max = Math.max(Math.max(red,green),blue);
 
+				float ratio = (float)max/(float)min;
+				if(ratio > 1.5){
+					im.setRGB(i,j,0xFFFFFF);
+				}//failed
 			}
-
 		}
 
+		ImageIO.write(im,"JPG",new File("C:\\Users\\Yao\\Desktop\\testing\\rightbp1.jpg"));
 		// input a txt file that contains directory of the image
 		//handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
 		//System.out.println("Done.");

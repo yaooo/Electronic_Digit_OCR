@@ -106,9 +106,9 @@ public class Houghlines {
             Point p1 = new Point(x1,y1);
             Point p2 = new Point(x2,y2);
             line(rgb,p1,p2,new Scalar (0,0,255,0),2,8,0);
-            System.out.println("Line spotted: ");
+     /*       System.out.println("Line spotted: ");
             System.out.println("\t pt1: (" + p1.x()+","+p1.y()+")");
-            System.out.println("\t pt2: (" + p2.x()+","+p2.y()+")");
+            System.out.println("\t pt2: (" + p2.x()+","+p2.y()+")");*/
 
             head = structures.Node.add(x1,y1,x2,y2,head);
 
