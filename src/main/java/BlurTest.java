@@ -16,7 +16,11 @@ import static org.bytedeco.javacpp.opencv_imgproc.*;
 public class BlurTest {
     final private static double delta = 10; // Have the limit as 10
 
-    public static boolean readImage(String path){
+    /**
+     * @param path The image path
+     * @return true for blurry, false for normal
+     */
+    public static boolean ifBlurry(String path){
 
         Mat mat = imread(path);
         Mat outGray =  new Mat();
@@ -50,10 +54,10 @@ public class BlurTest {
 
         if(Idelta < delta) {
             System.out.println("Square difference:" + Idelta );
-            System.out.println("Picture :" + path + " is blurry.");
+            System.out.println("Old_OCR.Picture :" + path + " is blurry.");
         }
-        waitKey(0);
-        destroyWindow(path);
-        return (Idelta > delta);
+        /*waitKey(0);
+        destroyWindow(path);*/
+        return (Idelta < delta);
     }
 }

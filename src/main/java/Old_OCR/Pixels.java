@@ -1,3 +1,5 @@
+package Old_OCR;
+
 import org.apache.commons.io.FileUtils;
 
 import javax.imageio.ImageIO;

@@ -48,8 +48,9 @@ public class LineDetection {
     }
 
     private static void imgProcessing(String Path){
+        //region Image processing
         Mat original = imread(Path);
-        imshow("original",original);
+        //imshow("original",original);
 
         //RGB to Gray
         Mat gray = new Mat();
@@ -57,41 +58,48 @@ public class LineDetection {
 
         //Gaussian Blur
         Mat blurred = new Mat();
-        Size KernelSize = new Size(3,3);
+        Size KernelSize = new Size(5,5);
         blur(gray,blurred,KernelSize);
 
         //Binary image
         Mat BW = Binary(blurred);//Adjust the threshold when change the image to binary
-        imshow("Binary image",BW);
-
-
+        //imshow("Binary image",BW);
 
         //threshold(blurred, dst, 100, 255, THRESH_OTSU);
-        Mat dst =  new Mat();
+        Mat otsu =  new Mat();
         int bestThresh = otsu(blurred);
-        System.out.println("BEST threshold -------------->"+bestThresh);
-        threshold(blurred,dst,bestThresh,255,CV_THRESH_BINARY);
-        imshow("OTSU Binary", dst);
+        threshold(blurred,otsu,bestThresh,255,CV_THRESH_BINARY);
+        //imshow("OTSU Binary", otsu);
 
 
         //Morphological closing
         Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
         Mat closed = new Mat();
         morphologyEx(BW, closed, MORPH_CLOSE, element5);
+        morphologyEx(otsu, otsu, MORPH_CLOSE, element5);
         //imshow("Closed",closed);
 
         Mat open = new Mat();
         morphologyEx(closed, open, MORPH_OPEN, element5);
-        imshow("Open",open);
+        morphologyEx(otsu, otsu, MORPH_OPEN, element5);
+       // imshow("Open",open);
+        //endregion
 
-        // Hough Transformation
-        // store the points and slope in a form of a linked list
-        Node list_data_slope = Houghlines.HoughLP(open);
+        // Hough Transformation: store the points and slope in a form of a linked list
+        Node list = Houghlines.HoughLP(open, "HL  Open");
+        Node list1 = Houghlines.HoughLP(otsu, "HL  OTSU");
 
-        //Node.traverse(list_data_slope);
+        int num_list = Node.numberOfNode(list);
+        int num_list1 = Node.numberOfNode(list1);
 
+        Node finalList = CombineTwoList(list,list1);
+
+        System.out.println(Node.traverse(finalList));
+        System.out.println("---------------------\n\n");
+
+        drawOnImage(original, finalList);
         //Group the nodes based on their slopes and print them out
-       // Node[] arr = Location.printGrouping(list_data_slope);
+        Node[] arr = Location.printGrouping(finalList);
 
 
         //For testing only:
@@ -102,6 +110,24 @@ public class LineDetection {
         waitKey(0);
 
     }
+
+    private static void drawOnImage(Mat img, Node list){
+        Mat src = new Mat(img);
+        Node temp = list;
+        while(temp != null){
+            int x1 = temp.getX1();
+            int y1 = temp.getY1();
+            int x2 = temp.getX2();
+            int y2 = temp.getY2();
+            Point p1 = new Point(x1,y1);
+            Point p2 = new Point(x2,y2);
+            line(src,p1,p2,new Scalar (0,0,255,0),2,8,0);
+            temp = temp.next;
+        }
+        imshow("Lines using both methods", src);
+
+    }
+
 
     /**
      * Adjust the threshold when change the image to a binary image, it is set to 50% black for now
@@ -226,4 +252,33 @@ public class LineDetection {
         return threshold;
     }
 
+    private static Node CombineTwoList(Node list, Node list1){
+        int num_list = Node.numberOfNode(list);
+        int num_list1 = Node.numberOfNode(list1);
+
+        if(num_list==0) return list1;
+        if(num_list1 == 0) return list;
+
+        boolean ifCombine = false;
+        if(num_list <= 3 && num_list1 <= 3){
+            ifCombine = true;
+        }
+
+        if(!ifCombine){
+            return (num_list > num_list1)? list:list1;
+        }else{
+            while(list != null){
+                int x1 = list.getX1();
+                int y1 = list.getY1();
+                int x2 = list.getX2();
+                int y2 = list.getY2();
+
+                list1 = Node.add(x1,y1,x2,y2,list1);
+                list = list.next;
+
+            }
+            return list1;
+        }
+
+    }
 }

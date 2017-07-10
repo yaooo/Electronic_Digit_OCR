@@ -1,3 +1,5 @@
+package Old_OCR;
+
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
@@ -15,7 +17,7 @@ import java.util.Arrays;
  *
  * <pre><code>
  * //create the detector
- * CannyEdgeDetector detector = new CannyEdgeDetector();
+ * Old_OCR.CannyEdgeDetector detector = new Old_OCR.CannyEdgeDetector();
  * //adjust its parameters as desired
  * detector.setLowThreshold(0.5f);
  * detector.setHighThreshold(1f);

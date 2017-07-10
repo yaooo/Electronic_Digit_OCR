@@ -78,16 +78,15 @@ public class Houghlines {
         return lines;
     }
 
-    public static Node HoughLP(Mat src){
+    public static Node HoughLP(Mat src, String name){
         Mat dst =  new Mat();
         Mat color_dst = new Mat();
         Canny( src, dst, 50,200,3,true);
         cvtColor(dst, color_dst, CV_GRAY2BGR);
 
-
-        return LineFinder(dst);
+        return LineFinder(dst, name);
     }
-    private static Node LineFinder(Mat binary){
+    private static Node LineFinder(Mat binary, String name){
         Mat lines = new Mat();
         Node head = null;
         Mat rgb = new Mat();
@@ -96,7 +95,6 @@ public class Houghlines {
         HoughLinesP(binary, lines, 1, CV_PI/180,80,120,30);
 
         IntRawIndexer sI = lines.createIndexer();
-        System.out.print("New Method:\n\n");
         for (int y = 0; y < lines.rows(); y++) {
 
             int x1 = sI.get(y,0);
@@ -113,7 +111,7 @@ public class Houghlines {
             head = structures.Node.add(x1,y1,x2,y2,head);
 
         }
-        imshow("New Method for Hough", rgb);
+        imshow(name, rgb);
 
         return head;
     }

@@ -66,11 +66,14 @@ public class Node {
         if(list == null){
             return added;
         }
-        Node temp = list;
+
+        //first node
         if(added.getSlope() <= list.getSlope()) {
             added.next = list;
             return added;
         }
+
+        Node temp = list;
         while(true){
             if(temp.next == null){
                 temp.next = added;
@@ -81,6 +84,7 @@ public class Node {
                 temp.next = added;
                 break;
             }
+
             temp = temp.next;
         }
 
@@ -112,16 +116,37 @@ public class Node {
         return list;
     }
 
-    public static void traverse(Node list){
+    public static Node copyNode(Node node){
+        int x1 = node.getX1();
+        int y1 = node.getY1();
+        int x2 = node.getX2();
+        int y2 = node.getY2();
+        return new Node(x1,y1,x2,y2);
+    }
+
+    public static int numberOfNode(Node list){
+        if(list == null) return 0;
+        int numNode= 0;
+        Node temp = list;
+        while(temp != null){
+            numNode++;
+            temp = temp.next;
+        }
+        return numNode;
+    }
+
+    public static int traverse(Node list){
+        int numNode= 0;
         if(list == null)
             System.out.println("This list is empty.");
         Node temp = list;
         while(temp != null){
             String xyslope = "Point: p1 (" + temp.getX1() + "," + temp.getY1() +") ,p2 (" + temp.getX2() + "," + temp.getY2() +")---------> Slope:" + temp.getSlope();
             System.out.println(xyslope);
-            //System.out.println("Angle between current node and the first node: "+Line.angle(list,temp)+"\n---------------------------------------");
+            numNode++;
             temp = temp.next;
         }
+        return numNode;
     }
 
     // Using recursion, feel free to change it back to regular loop

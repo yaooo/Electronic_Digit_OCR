@@ -17,7 +17,7 @@ import java.util.List;
 
 public class BasicExample {
     public static void main(String[] args) {
-        File image = new File("C:\\Users\\Yao\\workspace\\OCR_DIGIT\\src\\test\\java\\eurotext.png");
+       /* File image = new File("C:\\Users\\Yao\\workspace\\OCR_DIGIT\\src\\test\\java\\eurotext.png");
         ITesseract api = new Tesseract();
         File tessDataFolder = LoadLibs.extractTessResources("tessdata"); // Maven build bundles English data
         api.setDatapath(tessDataFolder.getParent());
@@ -26,7 +26,7 @@ public class BasicExample {
             System.out.println(result);
         } catch (TesseractException e) {
             System.err.println(e.getMessage());
-        }
+        }*/
     }
 
     protected boolean saveTiff(String filename, BufferedImage image) {

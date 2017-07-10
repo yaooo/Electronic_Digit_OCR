@@ -1,11 +1,12 @@
-/**
+package Old_OCR; /**
  * @author Yao Shi
  */
 
-import org.apache.commons.io.FileUtils;
+import Old_OCR.CannyEdgeDetector;
+import Old_OCR.Picture;
+import Old_OCR.noiseRemove;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +18,7 @@ public class testing {
 
 	public static void main(String[] args) throws IOException {
 
-		Picture img = new Picture("C:\\Users\\Yao\\Desktop\\testing\\rightbp.jpg");
+		Picture img = new Picture("C:\\Users\\Yao\\Desktop\\Old_OCR.testing\\rightbp.jpg");
 
 		BufferedImage im = img.getBufferedImage();
 
@@ -31,16 +32,16 @@ public class testing {
 				int min = Math.min(Math.min(red,green),blue);
 				int max = Math.max(Math.max(red,green),blue);
 
-				float ratio = (float)max/(float)min;
+				/*float ratio = (float)max/(float)min;
 				if(ratio > 1.5){
 					im.setRGB(i,j,0xFFFFFF);
-				}//failed
+				}*///failed
 			}
 		}
 
-		ImageIO.write(im,"JPG",new File("C:\\Users\\Yao\\Desktop\\testing\\rightbp1.jpg"));
+		ImageIO.write(im,"JPG",new File("C:\\Users\\Yao\\Desktop\\Old_OCR.testing\\rightbp1.jpg"));
 		// input a txt file that contains directory of the image
-		//handlePicture("C:\\Users\\Yao\\Desktop\\testing\\dir.txt");
+		//handlePicture("C:\\Users\\Yao\\Desktop\\Old_OCR.testing\\dir.txt");
 		//System.out.println("Done.");
 	}
 

@@ -32,7 +32,7 @@ public class Location {
     public static Node[] printGrouping(Node node){
         Node [] arr = Grouping(node);
 
-        System.out.println("\n\n\n0-25  ");
+        System.out.println("0-25  ");
         Node.traverse(arr[0]);
         System.out.println("25-65");
         Node.traverse(arr[1]);
@@ -53,7 +53,7 @@ public class Location {
 
 
 
-
+//todo
             )
 
 
