@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * @author Yao Shi
  */
-public class DeleteBlur {
+public class DetectBlur {
 
     public static void main(String [] args) throws IOException {
             String txtPath = "C:\\Users\\Yao\\Desktop\\sample\\tmp.txt";

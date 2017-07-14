@@ -21,14 +21,10 @@ import java.io.*;
  * @author Yao Shi
  */
 public class LineDetection {
-
-/*    private static final int[] WHITE = {255, 255, 255};
-    private static final int[] BLACK = {0, 0, 0};*/
-
     public static void main(String [] args) throws IOException{
         /*String Path = "C:\\Users\\Yao\\Desktop\\testing\\t (21).jpg";
         imgProc(Path);*/
-        String txtPath = "C:\\Users\\Yao\\Desktop\\testing\\dir.txt";
+        String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\dir.txt";
         readFileNameFromTxt(txtPath);
     }
 
@@ -47,7 +43,7 @@ public class LineDetection {
         br.close();
     }
 
-    private static void imgProcessing(String Path){
+    public static void imgProcessing(String Path){
         //region Image processing
         Mat original = imread(Path);
         //imshow("original",original);
@@ -62,7 +58,7 @@ public class LineDetection {
         blur(gray,blurred,KernelSize);
 
         //Binary image
-        Mat BW = Binary(blurred);//Adjust the threshold when change the image to binary
+        Mat BW = IdentifyBinaryThreshold(blurred);//Adjust the threshold when change the image to binary
         //imshow("Binary image",BW);
 
         //threshold(blurred, dst, 100, 255, THRESH_OTSU);
@@ -75,9 +71,17 @@ public class LineDetection {
         //Morphological closing
         Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
         Mat closed = new Mat();
-        morphologyEx(BW, closed, MORPH_CLOSE, element5);
-        morphologyEx(otsu, otsu, MORPH_CLOSE, element5);
-        //imshow("Closed",closed);
+
+        Mat horizontal = new Mat(1,20,CV_8U);
+        Mat vertical  = new Mat(20,1,CV_8U);
+
+        morphologyEx(BW, closed, MORPH_CLOSE, horizontal);
+        morphologyEx(closed, closed, MORPH_CLOSE, vertical);
+
+        morphologyEx(otsu, otsu, MORPH_CLOSE, horizontal);
+        morphologyEx(otsu, otsu, MORPH_CLOSE, vertical);
+
+        imshow("Closed",closed);
 
         Mat open = new Mat();
         morphologyEx(closed, open, MORPH_OPEN, element5);
@@ -97,21 +101,21 @@ public class LineDetection {
         System.out.println(Node.traverse(finalList));
         System.out.println("---------------------\n\n");
 
-        drawOnImage(original, finalList);
+        drawLinesOnImage(original, finalList);
         //Group the nodes based on their slopes and print them out
         Node[] arr = Location.printGrouping(finalList);
 
 
         //For testing only:
-        moveWindow("original",20, 20);
-        moveWindow("Binary image",500, 20);
-        moveWindow("Open",980, 20);
-        moveWindow("New Method for Hough",1450, 20);
+        moveWindow("Lines using both methods",0, 0);
+        moveWindow("HL  Open",480, 0);
+        moveWindow("HL  OTSU",960, 0);
+        //moveWindow("New Method for Hough",1450, 20);
         waitKey(0);
 
     }
 
-    private static void drawOnImage(Mat img, Node list){
+    private static void drawLinesOnImage(Mat img, Node list){
         Mat src = new Mat(img);
         Node temp = list;
         while(temp != null){
@@ -128,13 +132,12 @@ public class LineDetection {
 
     }
 
-
     /**
      * Adjust the threshold when change the image to a binary image, it is set to 50% black for now
      * @param blurred The input image
      * @return Output image with at least 50% black
      */
-    private static Mat Binary(Mat blurred){
+    private static Mat IdentifyBinaryThreshold(Mat blurred){
         boolean flag =  false;
         Mat BW = new Mat();
         int thresh = 100;
@@ -158,8 +161,7 @@ public class LineDetection {
     }
 
     // set the area range for the image, and compare the ratio of the screen
-    private static boolean verifySizes(RotatedRect mr)
-    {
+    private static boolean verifySizes(RotatedRect mr) {
         float error = 0.3f;
 
 
@@ -189,8 +191,7 @@ public class LineDetection {
 
     }
 
-    private static int otsu(Mat image)
-    {
+    private static int otsu(Mat image) {
 
         int width = image.cols();
         int height = image.rows();

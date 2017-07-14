@@ -92,7 +92,7 @@ public class Houghlines {
         Mat rgb = new Mat();
         cvtColor(binary, rgb, CV_GRAY2BGR);
 
-        HoughLinesP(binary, lines, 1, CV_PI/180,80,120,30);
+        HoughLinesP(binary, lines, 1, CV_PI/180,80,100,30);
 
         IntRawIndexer sI = lines.createIndexer();
         for (int y = 0; y < lines.rows(); y++) {
