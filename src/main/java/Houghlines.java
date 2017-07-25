@@ -108,6 +108,21 @@ public class Houghlines {
             System.out.println("\t pt1: (" + p1.x()+","+p1.y()+")");
             System.out.println("\t pt2: (" + p2.x()+","+p2.y()+")");*/
 
+
+            double distance = Math.pow(Math.pow(p1.x()-p2.x(),2) + Math.pow(p1.y()-p2.y(),2),0.5);
+            double angle = structures.Line.AngleFromHrizontalAxes(x1,y1,x2,y2);
+
+
+            // Remove supper long, vertical/Horizontal lines
+            if((angle>170 || angle <10) && distance >= (double)binary.cols()*0.9){
+                continue;
+            }
+            if(angle>75 && angle <105 && distance >= (double)binary.rows()*0.9){
+                continue;
+            }
+
+
+
             head = structures.Node.add(x1,y1,x2,y2,head);
 
         }

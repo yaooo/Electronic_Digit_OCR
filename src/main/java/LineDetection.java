@@ -2,6 +2,7 @@ import org.bytedeco.javacpp.indexer.IntRawIndexer;
 import org.bytedeco.javacpp.indexer.UByteRawIndexer;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.OpenCVFrameConverter;
+import structures.Line;
 import structures.Location;
 import structures.Node;
 
@@ -22,8 +23,7 @@ import java.io.*;
  */
 public class LineDetection {
     public static void main(String [] args) throws IOException{
-        /*String Path = "C:\\Users\\Yao\\Desktop\\testing\\t (21).jpg";
-        imgProc(Path);*/
+        //String txtPath = "C:\\Users\\Yao\\Desktop\\capture\\dir.txt";
         String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\dir.txt";
         readFileNameFromTxt(txtPath);
     }
@@ -46,7 +46,7 @@ public class LineDetection {
     public static void imgProcessing(String Path){
         //region Image processing
         Mat original = imread(Path);
-        //imshow("original",original);
+        imshow("original",original);
 
         //RGB to Gray
         Mat gray = new Mat();
@@ -63,30 +63,34 @@ public class LineDetection {
 
         //threshold(blurred, dst, 100, 255, THRESH_OTSU);
         Mat otsu =  new Mat();
-        int bestThresh = otsu(blurred);
+/*        int bestThresh = otsu(blurred);
         threshold(blurred,otsu,bestThresh,255,CV_THRESH_BINARY);
-        //imshow("OTSU Binary", otsu);
+        imshow("OTSU Binary", otsu);*/
+
+        threshold(blurred, otsu, 0, 255,  CV_THRESH_OTSU);
+        //imshow("OTSU",otsu);
 
 
         //Morphological closing
-        Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(15,15));
+        Mat element5 = getStructuringElement(MORPH_ELLIPSE, new Size(5,5));
         Mat closed = new Mat();
 
-        Mat horizontal = new Mat(1,20,CV_8U);
-        Mat vertical  = new Mat(20,1,CV_8U);
+        //Mat horizontal = new Mat(1,20,CV_8U);
+        //Mat vertical  = new Mat(20,1,CV_8U);
 
-        morphologyEx(BW, closed, MORPH_CLOSE, horizontal);
-        morphologyEx(closed, closed, MORPH_CLOSE, vertical);
+        morphologyEx(BW, closed, MORPH_CLOSE,element5);
+        //morphologyEx(closed, closed, MORPH_CLOSE, vertical);
 
-        morphologyEx(otsu, otsu, MORPH_CLOSE, horizontal);
-        morphologyEx(otsu, otsu, MORPH_CLOSE, vertical);
+        morphologyEx(otsu, otsu, MORPH_CLOSE, element5);
+        //morphologyEx(otsu, otsu, MORPH_CLOSE, vertical);
 
-        imshow("Closed",closed);
+        //imshow("Closed",closed);
 
         Mat open = new Mat();
         morphologyEx(closed, open, MORPH_OPEN, element5);
         morphologyEx(otsu, otsu, MORPH_OPEN, element5);
-       // imshow("Open",open);
+        imshow("open1", otsu);
+        imshow("Open",open);
         //endregion
 
         // Hough Transformation: store the points and slope in a form of a linked list
@@ -106,7 +110,8 @@ public class LineDetection {
         Node[] arr = Location.printGrouping(finalList);
 
 
-        //For testing only:
+        //Line.combineLine(arr);
+        //For testing
         moveWindow("Lines using both methods",0, 0);
         moveWindow("HL  Open",480, 0);
         moveWindow("HL  OTSU",960, 0);
@@ -261,7 +266,7 @@ public class LineDetection {
         if(num_list1 == 0) return list;
 
         boolean ifCombine = false;
-        if(num_list <= 3 && num_list1 <= 3){
+        if(num_list <= 5 && num_list1 <= 5){
             ifCombine = true;
         }
 

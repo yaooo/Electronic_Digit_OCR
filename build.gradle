@@ -57,11 +57,10 @@ dependencies {
     //javaCV (openCV)
     compile group: 'org.bytedeco', name: 'javacv-platform', version: '1.3.2'
 
-    //tess4j
-    // https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j
+    //tess4j (OCR)
     compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '3.4.0'
 
     // https://mvnrepository.com/artifact/org.im4java/im4java
-    compile group: 'org.im4java', name: 'im4java', version: '1.4.0'
+    //compile group: 'org.im4java', name: 'im4java', version: '1.4.0'
 
 }
