@@ -3,22 +3,15 @@ package LabelImage;
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;
 
-import java.awt.*;
-
 /**
  * @author Yao Shi
  */
 public class DarkTest {
 
     public static void main(String [] args) {
-        long startTime = System.currentTimeMillis();
 
-        String path = "C:\\Users\\Yao\\Desktop\\Photos\\t(25).jpg";
+        String path = "C:\\Users\\Yao\\Desktop\\sample\\a (191).jpg";
         System.out.println(isBrightColor(path));
-
-        long endTime   = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        System.out.println(totalTime);
     }
 
 
@@ -40,12 +33,12 @@ public class DarkTest {
                 double green = s.val(1);
                 double red = s.val(2);
 
-                int brightness = (int) Math.sqrt(red*red*.241 + green*green*.691 + blue*blue*.068);
+                int brightness = (int) Math.sqrt(red*red*.299 + green*green*.587 + blue*blue*.114);
 
-                if(brightness < 10)
+                if(brightness < 40) // simplify the histogram for pixels less than 40 in the range of 0-255
                     count++;
             }
         }
-        return (darkPixelCount < allPixelsCount * 0.25);
+        return (count < allPixelsCount * 0.5); // change 0.5 to other factor if need
     }
 }
