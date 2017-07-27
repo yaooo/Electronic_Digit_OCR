@@ -23,10 +23,11 @@ import java.io.*;
  */
 public class LineDetection {
     public static void main(String [] args) throws IOException{
-        //String txtPath = "C:\\Users\\Yao\\Desktop\\capture\\dir.txt";
-        String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\dir.txt";
+        String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\unfinished\\dir.txt";
+        //String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\dir.txt";
         readFileNameFromTxt(txtPath);
     }
+
 
     private static void readFileNameFromTxt(String txtFile) throws IOException {
         File file = new File(txtFile);
@@ -58,7 +59,9 @@ public class LineDetection {
         blur(gray,blurred,KernelSize);
 
         //Binary image
-        Mat BW = IdentifyBinaryThreshold(blurred);//Adjust the threshold when change the image to binary
+        //Mat BW = IdentifyBinaryThreshold(blurred, 0.5, 0.7);//Adjust the threshold when change the image to binary
+        Mat BW = IdentifyBinaryThreshold(blurred, 0.3, 0.5);//Adjust the threshold when change the image to binary
+
         //imshow("Binary image",BW);
 
         //threshold(blurred, dst, 100, 255, THRESH_OTSU);
@@ -68,7 +71,13 @@ public class LineDetection {
         imshow("OTSU Binary", otsu);*/
 
         threshold(blurred, otsu, 0, 255,  CV_THRESH_OTSU);
-        //imshow("OTSU",otsu);
+        imshow("OTSU",otsu);
+
+
+        Mat adp = new Mat();
+        adaptiveThreshold(blurred, adp,255, ADAPTIVE_THRESH_MEAN_C,
+                THRESH_BINARY, 15, 8);
+        imshow("ADP", adp);
 
 
         //Morphological closing
@@ -84,13 +93,19 @@ public class LineDetection {
         morphologyEx(otsu, otsu, MORPH_CLOSE, element5);
         //morphologyEx(otsu, otsu, MORPH_CLOSE, vertical);
 
+        morphologyEx(adp, adp, MORPH_CLOSE, element5);
+
+
         //imshow("Closed",closed);
 
         Mat open = new Mat();
         morphologyEx(closed, open, MORPH_OPEN, element5);
         morphologyEx(otsu, otsu, MORPH_OPEN, element5);
+        morphologyEx(adp, adp, MORPH_OPEN, element5);
+
         imshow("open1", otsu);
         imshow("Open",open);
+        imshow("open2", adp);
         //endregion
 
         // Hough Transformation: store the points and slope in a form of a linked list
@@ -142,20 +157,20 @@ public class LineDetection {
      * @param blurred The input image
      * @return Output image with at least 50% black
      */
-    private static Mat IdentifyBinaryThreshold(Mat blurred){
+    private static Mat IdentifyBinaryThreshold(Mat blurred, double low, double high){
         boolean flag =  false;
         Mat BW = new Mat();
         int thresh = 100;
         double ratio = 0;
 
-        while(ratio < 0.5){
+        while(ratio < low){
             BW.zero();
             threshold(blurred,BW,thresh,255,0);
             ratio = 1 - (double)countNonZero(BW)/(double)BW.rows()/(double)BW.cols();
             thresh += 5;
         }
 
-        while(ratio > 0.7){
+        while(ratio > high){
             BW.zero();
             threshold(blurred,BW,thresh,255,0);
             ratio = 1 - (double)countNonZero(BW)/(double)BW.rows()/(double)BW.cols();
