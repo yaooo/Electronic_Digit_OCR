@@ -1,3 +1,5 @@
+package LabelImage;
+
 import java.io.*;
 
 /**
@@ -5,7 +7,7 @@ import java.io.*;
  * This class is used to check if the file is too small or it is not correctly coded in JPG
  * @author Yao Shi
  */
-public class CorruptionCheck {
+public class CorruptionTest {
     public static void main(String[] args) throws IOException{
 
         String p = "C:\\Users\\Yao\\Desktop\\sample\\tmp.txt";

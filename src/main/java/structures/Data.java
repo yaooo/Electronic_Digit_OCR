@@ -1,3 +1,5 @@
+package structures;
+
 /**
  * @author Yao Shi
  */
