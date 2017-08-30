@@ -1,0 +1,6 @@
+ImageSelect:
+To make selections of the images (like the snipping tool in windows).
+
+LineDetection:
+Finding the straight lines in the images. Allow different threshold for the errors.
+Store the data in the linked list with different angles stored.

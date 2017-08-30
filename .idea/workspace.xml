@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5886bd25-e953-402e-a17b-803b42ea4678" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml___jb_tmp___" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/BasicExample.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/SIFI.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Houghlines.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/ImageSelect$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/ImageSelect$TestPane$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/ImageSelect$TestPane$2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/ImageSelect$TestPane.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/ImageSelect.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/LabelImage/BlurTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/LabelImage/CorruptionTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/LabelImage/DarkTest.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/LineDetection.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Old_OCR/CannyEdgeDetector.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Old_OCR/Picture.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Old_OCR/Pixels.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Old_OCR/noiseRemove.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/Old_OCR/testing.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/structures/Data$Number.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/structures/Data.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/structures/Line.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/structures/Location.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/classes/structures/Node.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_libtensorflow_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_libtensorflow_jni_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tensorflow_tensorflow_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/workspace-OCR.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/workspace-OCR_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/workspace-OCR_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/LabelImage/DarkTest.class" afterPath="$PROJECT_DIR$/build/classes/main/LabelImage/DarkTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/OCR.iml" afterPath="$PROJECT_DIR$/.idea/modules/OCR.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/OCR_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/OCR_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/OCR_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/OCR_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ImageSelect.java" afterPath="$PROJECT_DIR$/src/main/java/ImageSelect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/LineDetection.java" afterPath="$PROJECT_DIR$/src/main/java/LineDetection.java" />
-    </list>
+    <list default="true" id="5886bd25-e953-402e-a17b-803b42ea4678" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -105,51 +67,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Houghlines.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
+      <file leaf-file-name="README" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="50" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="189">
+              <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gradlew" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradlew">
+      <file leaf-file-name="README" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+            <state relative-caret-position="105">
+              <caret line="5" column="63" lean-forward="false" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LineDetection.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/LineDetection.java">
+      <file leaf-file-name="CorruptionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/CorruptionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="714">
+              <caret line="34" column="56" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="BlurTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/BlurTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageSelect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ImageSelect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+            <state relative-caret-position="312">
+              <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -631,10 +583,13 @@
         <option value="$PROJECT_DIR$/src/main/java/HelloTF.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageSelect.java" />
         <option value="$PROJECT_DIR$/src/main/java/LineDetection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Old_OCR/Code_description" />
+        <option value="$PROJECT_DIR$/src/main/java/LabelImage/README" />
+        <option value="$PROJECT_DIR$/src/main/java/README" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1036" />
     <option name="y" value="91" />
     <option name="width" value="781" />
@@ -813,6 +768,20 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Old_OCR" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCR_DIGIT" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="structures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OCR_DIGIT" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1135,19 +1104,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1036" y="91" width="781" height="831" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1058" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3187773" sideWeight="0.49375" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47816592" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3704955" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7880987" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49126637" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32608697" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3704955" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3704955" sideWeight="0.49785176" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5674967" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23254564" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24812031" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1221,16 +1191,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco/javacpp/1.3.2/ce47602c0eabccc7b3fa456a054c9fb4c9e2915e/javacpp-1.3.2-sources.jar!/org/bytedeco/javacpp/indexer/IntRawIndexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="66" column="25" lean-forward="false" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing" />
-    <entry file="file://$PROJECT_DIR$/lib/nblibraries.properties" />
-    <entry file="file://$PROJECT_DIR$/test/net/sourceforge/tess4j/TessAPI1Test.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/tesseract/3.03-rc1-0.11/2d95c37f0a897b82312cc945f600a9b7c07b5d28/tesseract-3.03-rc1-0.11-sources.jar!/org/bytedeco/javacpp/tesseract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1628">
@@ -1374,13 +1334,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DetectBlur.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/BlurTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bytedeco.javacpp-presets/opencv/3.2.0-1.3/920df028fd3476cc44e1adef3d482ab1d9f12525/opencv-3.2.0-1.3-sources.jar!/org/bytedeco/javacpp/opencv_core.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -1389,13 +1342,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hs_err_pid22540.log" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/CorruptionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="62" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/DarkTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -1426,14 +1372,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HelloTF.java" />
-    <entry file="file://$PROJECT_DIR$/gradlew">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1890">
-          <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5538">
@@ -1457,18 +1395,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Old_OCR/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="50" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="0">
+          <caret line="0" column="72" lean-forward="true" selection-start-line="0" selection-start-column="72" selection-end-line="0" selection-end-column="72" />
           <folding />
         </state>
       </provider>
@@ -1476,7 +1406,71 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/LineDetection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="90" column="8" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Houghlines.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="3" column="50" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/BlurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="29" column="28" lean-forward="true" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/CorruptionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" column="56" lean-forward="false" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/structures/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LabelImage/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="63" lean-forward="false" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,10 @@
+Inside of the LabelImage folder, there are three tests for labelling images:
+
+-- Blur test:
+    Adjust the delta value to vary threshold to decide if the image is blurred.
+
+-- Corruption test:
+    Decide if the image is coded correctly because jpg always ends with "EE D9".
+
+-- Dark test:
+    Adjust the threshold if needed.
