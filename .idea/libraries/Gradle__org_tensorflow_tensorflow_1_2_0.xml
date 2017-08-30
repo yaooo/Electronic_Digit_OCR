@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.tensorflow:tensorflow:1.2.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.tensorflow/tensorflow/1.2.0/9c5ff4dd49dc9077e5a995a1ca1728011a915630/tensorflow-1.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

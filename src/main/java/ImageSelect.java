@@ -19,7 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 public class ImageSelect {
     public static void main(String[] args) throws IOException {
-        String txtPath = "C:\\Users\\Yao\\Desktop\\test1\\dir.txt";
+        String txtPath = "C:\\Users\\Yao\\Documents\\Emory\\test1\\dir.txt";
         readFileNameFromTxt(txtPath);
     }
 

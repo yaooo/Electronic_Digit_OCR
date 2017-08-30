@@ -23,7 +23,7 @@ import java.io.*;
  */
 public class LineDetection {
     public static void main(String [] args) throws IOException{
-        String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\unfinished\\dir.txt";
+        String txtPath = "C:\\Users\\Yao\\Documents\\Emory\\cropped\\finished\\unfinished\\dir.txt";
         //String txtPath = "C:\\Users\\Yao\\Desktop\\cropped\\dir.txt";
         readFileNameFromTxt(txtPath);
     }
@@ -158,7 +158,6 @@ public class LineDetection {
      * @return Output image with at least 50% black
      */
     private static Mat IdentifyBinaryThreshold(Mat blurred, double low, double high){
-        boolean flag =  false;
         Mat BW = new Mat();
         int thresh = 100;
         double ratio = 0;

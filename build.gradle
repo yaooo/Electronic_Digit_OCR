@@ -60,6 +60,9 @@ dependencies {
     //tess4j (OCR)
     compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '3.4.0'
 
+    // https://mvnrepository.com/artifact/org.tensorflow/tensorflow
+    compile group: 'org.tensorflow', name: 'tensorflow', version: '1.2.0'
+
     // https://mvnrepository.com/artifact/org.im4java/im4java
     //compile group: 'org.im4java', name: 'im4java', version: '1.4.0'
 
