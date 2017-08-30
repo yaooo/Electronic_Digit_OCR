@@ -4,3 +4,18 @@ To make selections of the images (like the snipping tool in windows).
 LineDetection:
 Finding the straight lines in the images. Allow different threshold for the errors.
 Store the data in the linked list with different angles stored.
+
+
+dir.txt file is a file containing the names of the images in which you want to process.
+For example, it could be like:
+
+```
+1.jpg
+2.jpg
+3.jpg
+```
+
+That means that I want to process 1.jpg, 2.jpg and 3.jpg.
+
+In windows, you can just run "dir /a-d /b >dir.txt" after cd to the directory containing the images.
+NOTICE: Please double click on the file and make sure dir.txt only has the image names, and manually erase the string "dir.txt".
